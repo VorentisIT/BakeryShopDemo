@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-script: "Caveat", cursive;
+  
+  --color-ivory: #FAF8F3;
+  --color-delice-espresso: #1A1412;
+  --color-delice-dark: #120E0C;
+  --color-delice-gold: #C59B27;
+  --color-delice-champagne: #D6A84F;
+  --color-delice-cream: #F7F2EC;
+  --color-delice-border: #E6DFD5;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: #FAF8F3;
+    color: #1A1612;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .font-script {
+    font-family: var(--font-script);
+  }
+
+  /* Custom luxury scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FAF8F5;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #E6DFD5;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C59B27;
+  }
+}
+
+/* Hide scrollbar utility for smooth touch carousels */
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* GPU hardware acceleration for smooth 60fps animations */
+@utility gpu-accel {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Subtle gold text gradient */
+@utility text-gold-gradient {
+  background-image: linear-gradient(135deg, #B8860B 0%, #C59B27 50%, #D6A84F 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Luxury card shadow */
+@utility shadow-delice {
+  box-shadow: 0 10px 30px -5px rgba(24, 19, 16, 0.05), 0 4px 12px -2px rgba(24, 19, 16, 0.03);
+}
+
+@utility shadow-delice-hover {
+  box-shadow: 0 20px 40px -10px rgba(24, 19, 16, 0.1), 0 8px 16px -4px rgba(24, 19, 16, 0.05);
+}
+
+/* Floating animation */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+.animate-float {
+  animation: floatSlow 5s ease-in-out infinite;
+}

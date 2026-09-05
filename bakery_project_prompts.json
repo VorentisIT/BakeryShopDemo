@@ -1,0 +1,95 @@
+{
+  "projectName": "L'Étoile Luxury Bakery & Patisserie",
+  "valuation": "$500 USD Professional UI/UX Web Application",
+  "techStack": {
+    "framework": "React 18 (Vite)",
+    "styling": "Tailwind CSS v4 + Dark Obsidian Glassmorphism System",
+    "animations": {
+      "gsap": "^3.15.0 (ScrollTrigger, Pinned Timelines, Mouse Parallax)",
+      "framerMotion": "^13.2.0 (Spring Physics, Slide-over Drawers, Layout Animations)"
+    },
+    "audio": "Web Audio API Synthetic Sound Engine",
+    "effects": "Canvas Confetti Celebration Generator",
+    "icons": "Lucide React"
+  },
+  "aiImagePrompts": [
+    {
+      "name": "Hero Bakery Showcase",
+      "targetFile": "public/images/hero.jpg",
+      "prompt": "Artisan sourdough bread loaf and warm flaky golden butter croissants on rustic dark slate table, flour dust, soft warm bakery lighting, shallow depth of field, high resolution luxury food photography",
+      "aspectRatio": "4:3"
+    },
+    {
+      "name": "Isolated 3D Transparent Cake Base",
+      "targetFile": "public/images/cake_isolated.jpg",
+      "prompt": "Luxury 3-tier Belgian chocolate cake with rich ganache drip and edible gold leaf, isolated on solid pure pitch black background, studio lighting, high resolution food photography",
+      "aspectRatio": "1:1"
+    },
+    {
+      "name": "Flying Organic Cherries",
+      "targetFile": "public/images/cherry.jpg",
+      "prompt": "Single pair of fresh glossy red cherries with green stems isolated on clean black background, gourmet food photography, high resolution",
+      "aspectRatio": "1:1"
+    },
+    {
+      "name": "Flying Roasted Dry Fruits",
+      "targetFile": "public/images/nuts.jpg",
+      "prompt": "Assorted roasted almonds, pistachios, hazelnuts, and walnut halves scattered isolated on clean dark black background, macro food photography",
+      "aspectRatio": "1:1"
+    },
+    {
+      "name": "Belgian Chocolate Truffle Cake",
+      "targetFile": "public/images/chocolate_cake.jpg",
+      "prompt": "Luxury Belgian chocolate truffle cake with rich glossy dark ganache, fresh raspberries, mint leaf, edible gold flakes, on dark ceramic plate, elegant lighting, gourmet patisserie photo",
+      "aspectRatio": "1:1"
+    },
+    {
+      "name": "Pastel French Macarons",
+      "targetFile": "public/images/macarons.jpg",
+      "prompt": "Assorted luxury French macarons in pastel colors lavender, pistachio, rose, salted caramel stacked on white marble surface with gold fork, gourmet patisserie styling",
+      "aspectRatio": "1:1"
+    },
+    {
+      "name": "Bespoke Celebration Cake",
+      "targetFile": "public/images/custom_cake.jpg",
+      "prompt": "Elegant 3-tier custom celebration cake with white vanilla frosting, soft blush rose petals, gold leaf drips, artistic high-end pastry design, studio lighting",
+      "aspectRatio": "1:1"
+    },
+    {
+      "name": "Master Baker Craft",
+      "targetFile": "public/images/baker.jpg",
+      "prompt": "Master artisan baker shaping sourdough bread dough in warm wooden kitchen with flour flying in light ray, vintage copper bowls, artisan craftsmanship atmosphere",
+      "aspectRatio": "4:3"
+    }
+  ],
+  "featuresImplemented": [
+    {
+      "feature": "Seamless Hero-to-Scroll Cake Transition",
+      "description": "3-tier Grand Cru Dark Chocolate Cake floats in Hero section with 3D cursor tilt effects and smoothly transitions into the pinned GSAP scroll section."
+    },
+    {
+      "feature": "GSAP 4-Stage Ingredient Assembly",
+      "description": "Scroll-triggered animation where cherries fly in from top-right and land on top, and dry fruits fly in from top-left to assemble onto the cake tiers with transparent background blending (mix-blend-mode: screen)."
+    },
+    {
+      "feature": "Interactive 3D Custom Cake Configurator",
+      "description": "Step-by-step tier, sponge, filling, topping, and custom sugar ribbon text inscription builder with dynamic stacked layer renderer and instant pricing."
+    },
+    {
+      "feature": "Filterable Gourmet Menu & Quick View Modal",
+      "description": "Category tabs, dietary filters (Organic, Vegan, Gluten-Free, Nut-Free), keyword search, sorting, and full ingredient/allergen specs modal."
+    },
+    {
+      "feature": "Slide-Over Cart Drawer & Stripe-Inspired Checkout",
+      "description": "Framer Motion cart drawer with promo code validation (GOLDEN15 for 15% off), pickup/delivery scheduler, simulated card payment gateway, and confetti order receipt."
+    },
+    {
+      "feature": "Web Audio API Sound Engine",
+      "description": "Toggleable audio feedback engine providing soft clicks, double-chime cart additions, and celebration fanfare tones."
+    }
+  ],
+  "localDevelopment": {
+    "command": "npm run dev",
+    "url": "http://localhost:5173/"
+  }
+}
