@@ -21,7 +21,11 @@ export default function FeaturedSection({ onAddToCart, onViewDetails }) {
       rating: 4.9,
       reviewsCount: 1200,
       image: exactFeaturedCake,
-      description: "Rich dark chocolate layered with roasted walnuts, a balance of intense and irresistible."
+      description: "Rich dark chocolate layered with roasted walnuts, a balance of intense cocoa and irresistible crunch.",
+      dietary: ['Vegetarian', 'Contains Nuts', '70% Dark Cocoa'],
+      prepTime: '24-Hour Slow Infusion',
+      calories: '420 kcal / slice',
+      allergens: ['Dairy', 'Gluten', 'Walnuts']
     },
     {
       id: 'belgian-truffle-celebration',
@@ -31,7 +35,11 @@ export default function FeaturedSection({ onAddToCart, onViewDetails }) {
       rating: 5.0,
       reviewsCount: 980,
       image: heroDeliceCake,
-      description: "27 crispy micro-layers of French butter laminated with 70% dark Valrhona cocoa ganache."
+      description: "27 crispy micro-layers of French butter laminated with 70% dark Valrhona cocoa ganache.",
+      dietary: ['Vegetarian', 'Pure Valrhona Ganache'],
+      prepTime: 'Handcrafted Daily',
+      calories: '450 kcal / slice',
+      allergens: ['Dairy', 'Gluten', 'Soy Lecithin']
     },
     {
       id: 'vanilla-berry-gold',
@@ -41,7 +49,11 @@ export default function FeaturedSection({ onAddToCart, onViewDetails }) {
       rating: 4.9,
       reviewsCount: 840,
       image: hdCustomCake,
-      description: "Multi-tier bespoke cake adorned with organic wild berries and edible 24K gold leaf drips."
+      description: "Multi-tier bespoke cake adorned with organic wild berries and edible 24K gold leaf drips.",
+      dietary: ['Vegetarian', 'Organic Berries', '24K Edible Gold'],
+      prepTime: 'Bespoke Order (4h prep)',
+      calories: '380 kcal / slice',
+      allergens: ['Dairy', 'Gluten', 'Eggs Available']
     },
     {
       id: 'sicilian-pistachio-dream',
@@ -51,7 +63,11 @@ export default function FeaturedSection({ onAddToCart, onViewDetails }) {
       rating: 4.8,
       reviewsCount: 620,
       image: hdSigPistachio,
-      description: "Slow-roasted Sicilian emerald pistachios folded into silky mascarpone mousse and sponge."
+      description: "Slow-roasted Sicilian emerald pistachios folded into silky mascarpone mousse and sponge.",
+      dietary: ['Vegetarian', 'Emerald Pistachio Mousse'],
+      prepTime: 'Slow Chilled 12h',
+      calories: '390 kcal / slice',
+      allergens: ['Dairy', 'Gluten', 'Pistachios']
     },
     {
       id: 'classic-black-forest',
@@ -61,7 +77,11 @@ export default function FeaturedSection({ onAddToCart, onViewDetails }) {
       rating: 4.8,
       reviewsCount: 910,
       image: hdSigBlackforest,
-      description: "Layers of chocolate sponge, tart Morello cherries, and rich dark chocolate curls."
+      description: "Layers of chocolate sponge, tart Morello cherries, and rich dark chocolate curls.",
+      dietary: ['Vegetarian', 'Morello Cherries'],
+      prepTime: 'Freshly Assembled',
+      calories: '360 kcal / slice',
+      allergens: ['Dairy', 'Gluten']
     }
   ];
 

@@ -82,30 +82,38 @@ export default function QuickViewModal({ item, onClose, onAddToCart }) {
               </p>
 
               {/* Dietary Pills */}
-              <div className="flex flex-wrap gap-2 mt-4">
-                {item.dietary.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 rounded-full bg-[#FAF8F5] text-[#C59B27] border border-[#E6DFD5] text-xs font-medium"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+              {item.dietary && Array.isArray(item.dietary) && item.dietary.length > 0 && (
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {item.dietary.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 rounded-full bg-[#FAF8F5] text-[#C59B27] border border-[#E6DFD5] text-xs font-medium"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
 
               {/* Specifications */}
               <div className="mt-6 space-y-2 pt-4 border-t border-[#E6DFD5] text-xs text-[#6B5744]">
                 <div className="flex justify-between">
                   <span>Process:</span>
-                  <span className="font-medium text-[#1A1612]">{item.prepTime}</span>
+                  <span className="font-medium text-[#1A1612]">{item.prepTime || 'Freshly Baked Daily'}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span>Calories:</span>
-                  <span className="font-medium text-[#1A1612]">{item.calories}</span>
-                </div>
+                {item.calories && (
+                  <div className="flex justify-between">
+                    <span>Calories:</span>
+                    <span className="font-medium text-[#1A1612]">{item.calories}</span>
+                  </div>
+                )}
                 <div className="flex justify-between">
                   <span>Allergens:</span>
-                  <span className="font-medium text-[#1A1612]">{item.allergens.join(', ')}</span>
+                  <span className="font-medium text-[#1A1612]">
+                    {item.allergens && Array.isArray(item.allergens) && item.allergens.length > 0
+                      ? item.allergens.join(', ')
+                      : 'Dairy, Gluten, Nuts (Prepared in artisan facility)'}
+                  </span>
                 </div>
               </div>
             </div>
