@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ShoppingBag, Search, User, Menu as MenuIcon, X, ArrowRight, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound } from '../utils/sound';
+import vorentisLogo from '../assets/vorentis_logo.png';
 
 export default function Navbar({ 
   currentPage = 'home', 
@@ -358,7 +359,7 @@ export default function Navbar({
               Contact
             </button>
 
-            <div className="pt-4 border-t border-[#E6DFD5]">
+            <div className="pt-4 border-t border-[#E6DFD5] space-y-3">
               <button
                 onClick={() => { setMobileMenuOpen(false); onOrderClick(); }}
                 className="w-full py-3 rounded-full bg-[#181310] text-[#D6A84F] font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-pointer"
@@ -366,6 +367,21 @@ export default function Navbar({
                 <span>Custom Cake Studio</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
+
+              <div className="text-center pt-1">
+                <p className="text-[10px] text-[#8C7A6B] inline-flex items-center justify-center gap-1.5 flex-wrap">
+                  <span>Developed by</span>
+                  <a 
+                    href="https://vorentis-it.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-[#C59B27] font-semibold underline underline-offset-2 hover:text-[#181310] transition-colors inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#FAF5EE] border border-[#E6DFD5]"
+                  >
+                    <img src={vorentisLogo} alt="Vorentis-IT" className="w-3.5 h-3.5 object-contain" />
+                    <span>vorentis-it.com</span>
+                  </a>
+                </p>
+              </div>
             </div>
           </motion.div>
         )}

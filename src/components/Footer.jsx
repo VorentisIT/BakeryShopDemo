@@ -1,7 +1,8 @@
 import React from 'react';
-import { ArrowUp, ArrowRight } from 'lucide-react';
+import { ArrowUp, ArrowRight, ExternalLink } from 'lucide-react';
 import { playSound } from '../utils/sound';
 import exactFooterCake from '../assets/hd_footer_cake.jpg';
+import vorentisLogo from '../assets/vorentis_logo.png';
 
 export default function Footer({ onNavigate = () => {}, onOpenCustomCake = () => {}, onOpenAccount = () => {} }) {
   const scrollToTop = () => {
@@ -133,7 +134,28 @@ export default function Footer({ onNavigate = () => {}, onOpenCustomCake = () =>
 
         {/* Bottom Copyright & Links matching reference */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#B9AA98] font-light">
-          <p>© 2026 Délice Bakery. All rights reserved.</p>
+          <div className="flex items-center gap-2 flex-wrap justify-center sm:justify-start">
+            <p>© 2026 Délice Bakery. All rights reserved.</p>
+            <span className="hidden sm:inline text-[#4A3B30]">•</span>
+            <p className="inline-flex items-center gap-1.5">
+              <span>Developed by</span>
+              <a 
+                href="https://vorentis-it.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[#D6A84F] hover:text-white font-medium transition-all inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-white/5 hover:bg-white/10 border border-[#3A2E25] hover:border-[#D6A84F]/50 group cursor-pointer"
+                title="Visit Vorentis-IT"
+              >
+                <img 
+                  src={vorentisLogo} 
+                  alt="Vorentis-IT Logo" 
+                  className="w-4 h-4 object-contain rounded-xs group-hover:scale-110 transition-transform" 
+                />
+                <span className="underline underline-offset-2">Vorentis-IT</span>
+                <ExternalLink className="w-3 h-3 inline text-[#D6A84F] group-hover:translate-x-0.5 transition-transform" />
+              </a>
+            </p>
+          </div>
 
           <div className="flex items-center gap-6">
             <button 
