@@ -147,7 +147,7 @@ export default function QuickViewModal({ item, onClose, onAddToCart }) {
                 className={`w-full py-4 rounded-full font-semibold text-xs uppercase tracking-widest transition-all shadow-md flex items-center justify-center gap-2 ${
                   added 
                     ? 'bg-[#8C9A70] text-white' 
-                    : 'bg-[#181310] text-[#D6A84F] hover:bg-[#D6A84F] hover:text-[#181310]'
+                    : 'bg-[#181310] text-[#FAF8F5] hover:bg-[#5A2E1F]'
                 }`}
               >
                 {added ? (

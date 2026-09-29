@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 import { playSound } from '../utils/sound';
 
 import exactBlogCroissant from '../assets/hd_blog_croissant.jpg';
@@ -33,25 +32,24 @@ export default function BakeryDiarySection({ onViewAll = () => {}, onSelectPost 
   ];
 
   return (
-    <section id="blog" className="py-16 sm:py-20 relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-[#FAF8F5]">
+    <section id="blog" className="py-16 sm:py-20 relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-[#FFF8EE]">
       
       {/* Header matching reference */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 text-center sm:text-left">
         <div>
-          <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#1A1612]">
+          <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#2B1A14]">
             From Our Bakery Diary
           </h2>
-          <p className="text-xs sm:text-sm text-[#C59B27] font-script text-xl mt-0.5">
+          <p className="text-xs sm:text-sm text-[#C9823A] font-script text-xl mt-0.5">
             Stories, Recipes & Inspiration
           </p>
         </div>
 
         <button
           onClick={() => { playSound('click'); onViewAll(); }}
-          className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#1A1612] hover:text-[#C59B27] transition-colors group cursor-pointer"
+          className="text-xs font-semibold uppercase tracking-wider text-[#2B1A14] hover:text-[#C9823A] transition-colors cursor-pointer active:scale-95"
         >
           <span>View All Posts</span>
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </button>
       </div>
 
@@ -64,27 +62,27 @@ export default function BakeryDiarySection({ onViewAll = () => {}, onSelectPost 
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: idx * 0.08 }}
             viewport={{ once: true }}
-            className="group rounded-2xl bg-white p-3 sm:p-4 border border-[#E6DFD5] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between cursor-pointer active:scale-[0.98]"
+            className="group rounded-2xl bg-[#FFFFFF] p-3 sm:p-4 border border-[#E9D8C5] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between cursor-pointer active:scale-[0.98]"
             onClick={() => { playSound('click'); onSelectPost(post); }}
           >
             {/* Image Box with Rounded Pill Badge on Lower Left */}
-            <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden mb-3">
+            <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden mb-3 bg-[#F4E5D2]">
               <img
                 src={post.image}
                 alt={post.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute bottom-2.5 left-2.5 px-3 py-0.5 rounded-full bg-white text-[#181310] text-[9px] font-bold uppercase tracking-wider shadow-sm">
+              <div className="absolute bottom-2.5 left-2.5 px-3 py-0.5 rounded-full bg-white text-[#5A2E1F] text-[9px] font-bold uppercase tracking-wider shadow-sm">
                 {post.badge}
               </div>
             </div>
 
             {/* Content Details matching reference */}
             <div className="space-y-1 px-1">
-              <h3 className="font-serif text-sm sm:text-base font-medium text-[#1A1612] group-hover:text-[#C59B27] transition-colors leading-snug">
+              <h3 className="font-serif text-sm sm:text-base font-medium text-[#2B1A14] group-hover:text-[#C9823A] transition-colors leading-snug">
                 {post.title}
               </h3>
-              <span className="text-[10px] text-[#8C7A6B] font-sans block">
+              <span className="text-[10px] text-[#78665C] font-sans block">
                 {post.date}
               </span>
             </div>

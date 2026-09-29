@@ -357,10 +357,9 @@ export default function InteractiveScrollCake({ onAddToCart }) {
             </h3>
             <button
               onClick={handleOrderSpecial}
-              className="px-8 py-3.5 rounded-full bg-[#181310] text-[#D6A84F] font-semibold text-xs uppercase tracking-widest hover:bg-[#D6A84F] hover:text-[#181310] transition-all shadow-md flex items-center gap-3 cursor-pointer group"
+              className="px-8 py-3.5 rounded-full bg-[#5A2E1F] text-[#FFF8EE] font-semibold text-xs uppercase tracking-widest hover:bg-[#3E1F16] transition-all shadow-md flex items-center justify-center cursor-pointer"
             >
               <span>Order This Masterpiece</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Play, Volume2, Sparkles } from 'lucide-react';
+import { X } from 'lucide-react';
 import hdChefCraft from '../assets/hd_chef_craft.jpg';
+import heroVideo from '../assets/heroframes/herovideo.mp4';
 
 export default function VideoModal({ isOpen, onClose }) {
   if (!isOpen) return null;
@@ -17,28 +18,22 @@ export default function VideoModal({ isOpen, onClose }) {
         >
           <button
             onClick={onClose}
-            className="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-black/50 text-white hover:bg-[#C59B27] flex items-center justify-center transition-colors cursor-pointer"
+            className="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-black/50 text-white hover:bg-[#5A2E1F] flex items-center justify-center transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
 
           {/* Video Container */}
-          <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-black mb-4">
-            <img
-              src={hdChefCraft}
-              alt="Artisan Pastry Craft"
+          <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-black mb-4 flex items-center justify-center">
+            <video
+              src={heroVideo}
+              poster={hdChefCraft}
+              autoPlay
+              controls
+              loop
+              playsInline
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
-
-            {/* Video Overlay Info */}
-            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
-                <span className="font-mono text-[11px] text-[#D4A359] uppercase tracking-wider">Atelier Documentary • Master Chef Jean-Luc</span>
-              </div>
-              <span className="font-mono text-[#FAF8F5]/80">02:45 / 03:20</span>
-            </div>
           </div>
 
           <div className="space-y-2">

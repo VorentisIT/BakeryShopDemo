@@ -61,20 +61,20 @@ export default function ProcessTimeline() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="group relative bg-[#FAF8F5] p-8 rounded-2xl border border-[#E6DFD5] hover:border-[#C59B27] transition-all duration-300 flex flex-col justify-between shadow-sm"
+                className="group relative bg-[#FAF8F5] p-8 rounded-2xl border border-[#E6DFD5] hover:border-[#5A2E1F]/50 transition-all duration-300 flex flex-col justify-between shadow-sm"
               >
                 <div>
                   {/* Step Number & Icon */}
                   <div className="flex items-center justify-between mb-6">
-                    <span className="font-mono text-3xl font-bold text-[#C59B27]/40 group-hover:text-[#C59B27] transition-colors">
+                    <span className="font-mono text-3xl font-bold text-[#5A2E1F]/40 group-hover:text-[#5A2E1F] transition-colors">
                       {step.num}
                     </span>
-                    <div className="w-12 h-12 rounded-xl bg-white border border-[#E6DFD5] flex items-center justify-center text-[#C59B27] group-hover:scale-110 transition-transform shadow-sm">
+                    <div className="w-12 h-12 rounded-xl bg-white border border-[#E6DFD5] flex items-center justify-center text-[#5A2E1F] group-hover:scale-110 transition-transform shadow-sm">
                       <Icon className="w-6 h-6" />
                     </div>
                   </div>
 
-                  <h3 className="font-serif text-xl font-normal text-[#1A1612] group-hover:text-[#C59B27] transition-colors">
+                  <h3 className="font-serif text-xl font-normal text-[#1A1612] group-hover:text-[#5A2E1F] transition-colors">
                     {step.title}
                   </h3>
                   <p className="text-xs text-[#6B5744] font-light mt-3 leading-relaxed">

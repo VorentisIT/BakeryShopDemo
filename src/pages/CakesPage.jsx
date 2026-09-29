@@ -62,116 +62,118 @@ export default function CakesPage({ onAddToCart, onViewDetails, onNavigateHome, 
       desc: "27 crispy micro-layers of French butter laminated with dark Valrhona ganache."
     },
     {
-      id: 'roasted-almond-delight',
+      id: 'roasted-almond-cream',
       name: "Roasted Almond Cream Cake",
       flavour: 'vanilla',
       price: 699,
       rating: 4.8,
-      reviewsCount: 412,
+      reviewsCount: 410,
       image: hdSigAlmond,
       isBestseller: false,
       dietary: 'Vegetarian',
       desc: "Fragrant Madagascar vanilla sponge infused with almond praline crunch."
     },
     {
-      id: 'vanilla-berry-gold',
-      name: "Vanilla Berry Gold Celebration",
-      flavour: 'berry',
-      price: 1199,
+      id: 'black-forest-kirsch',
+      name: "Black Forest Kirsch Gateau",
+      flavour: 'chocolate',
+      price: 799,
       rating: 4.9,
-      reviewsCount: 840,
-      image: hdCustomCake,
+      reviewsCount: 540,
+      image: hdSigBlackforest,
       isBestseller: true,
-      dietary: 'Nut-Free',
-      desc: "Multi-tier bespoke cake adorned with organic berries and edible 24K gold drips."
+      dietary: 'Vegetarian',
+      desc: "Valrhona chocolate sponge layered with sour cherry compote and Chantilly cream."
     },
     {
-      id: 'golden-walnut-delight',
-      name: "Golden Walnut Praline Cake",
+      id: 'caramel-walnut-delight',
+      name: "Caramel Walnut Royale",
       flavour: 'vanilla',
-      price: 749,
-      rating: 4.9,
-      reviewsCount: 295,
+      price: 849,
+      rating: 4.7,
+      reviewsCount: 310,
       image: hdSigWalnut,
       isBestseller: false,
-      dietary: 'Vegetarian',
-      desc: "Kashmir Valley golden walnut halves paired with honey buttercream."
+      dietary: 'Nut-Free Optional',
+      desc: "Burnt caramel buttercream layered between toasted walnut dacquoise."
     },
     {
-      id: 'classic-black-forest',
-      name: "Classic Black Forest Kirsch Cake",
+      id: 'classic-opera-cake',
+      name: "Classic French Opera Cake",
       flavour: 'chocolate',
-      price: 699,
-      rating: 4.8,
-      reviewsCount: 980,
-      image: hdSigBlackforest,
-      isBestseller: false,
-      dietary: 'Vegetarian',
-      desc: "Dark chocolate sponge, tart Morello cherries, and French cream curls."
-    },
-    {
-      id: 'opera-gateau-supreme',
-      name: "Parisian Opera Gateau",
-      flavour: 'chocolate',
-      price: 849,
-      rating: 4.9,
-      reviewsCount: 350,
+      price: 899,
+      rating: 4.95,
+      reviewsCount: 470,
       image: hdCatCakes,
       isBestseller: false,
+      dietary: 'Vegetarian',
+      desc: "Layers of almond sponge soaked in coffee syrup, layered with ganache and coffee buttercream."
+    },
+    {
+      id: 'custom-artisan-tier',
+      name: "Chef's Signature 3-Tier Atelier",
+      flavour: 'chocolate',
+      price: 1899,
+      rating: 5.0,
+      reviewsCount: 150,
+      image: hdCustomCake,
+      isBestseller: true,
       dietary: 'Eggless Available',
-      desc: "Almond sponge soaked in espresso syrup, layered with ganache and coffee buttercream."
+      desc: "Custom tiered celebration cake decorated with edible gold leaf and sugar flowers."
     }
   ];
 
   // Filtering
-  const filteredCakes = cakes.filter(c => {
-    if (activeFlavour !== 'all' && c.flavour !== activeFlavour) return false;
-    if (dietaryFilter !== 'all' && !c.dietary.toLowerCase().includes(dietaryFilter.toLowerCase())) return false;
+  const filteredCakes = cakes.filter(cake => {
+    if (activeFlavour !== 'all' && cake.flavour !== activeFlavour) return false;
+    if (dietaryFilter === 'eggless' && !cake.dietary.toLowerCase().includes('eggless')) return false;
+    if (dietaryFilter === 'vegetarian' && !cake.dietary.toLowerCase().includes('vegetarian')) return false;
+    if (dietaryFilter === 'nut-free' && !cake.dietary.toLowerCase().includes('nut-free')) return false;
     return true;
   }).sort((a, b) => {
     if (sortBy === 'price-low') return a.price - b.price;
     if (sortBy === 'price-high') return b.price - a.price;
     if (sortBy === 'rating') return b.rating - a.rating;
-    return 0; // featured
+    return 0;
   });
 
   return (
-    <div className="pt-24 pb-20 bg-[#FAF8F5] min-h-screen text-[#1A1612]">
+    <div className="pt-24 pb-20 bg-[#FFF8EE] min-h-screen text-[#2B1A14]">
       
       {/* Top Banner / Breadcrumbs */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8 border-b border-[#E6DFD5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8 border-b border-[#E9D8C5]">
         <div className="flex items-center justify-between mb-4">
           <button
             onClick={() => { playSound('click'); onNavigateHome(); }}
-            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#6B5744] hover:text-[#1A1612] transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#78665C] hover:text-[#2B1A14] transition-colors cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Home</span>
           </button>
 
-          <span className="text-xs text-[#C59B27] font-mono uppercase tracking-widest">
+          <span className="text-xs text-[#C9823A] font-mono uppercase tracking-widest">
             Home / Collection / Cakes
           </span>
         </div>
 
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <span className="font-script text-3xl text-[#C59B27] block">
+            <span className="font-script text-3xl text-[#C9823A] block">
               Handcrafted Pâtisserie
             </span>
-            <h1 className="font-serif text-4xl sm:text-5xl font-normal text-[#1A1612] mt-1">
+            <h1 className="font-serif text-4xl sm:text-5xl font-normal text-[#2B1A14] mt-1">
               Artisanal Cakes Collection
             </h1>
-            <p className="text-xs sm:text-sm text-[#6B5744] font-light mt-2 max-w-xl">
+            <p className="text-xs sm:text-sm text-[#78665C] font-light mt-2 max-w-xl">
               Each cake is baked fresh daily using French AOP butter, single-origin Valrhona cocoa, and organic fruit purees.
             </p>
           </div>
 
           <button
             onClick={() => { playSound('click'); onOpenCustomCake(); }}
-            className="self-start md:self-auto px-6 py-3 rounded-full bg-[#181310] text-[#FAF8F5] hover:bg-[#C59B27] transition-all text-xs font-medium uppercase tracking-wider shadow-md inline-flex items-center gap-2 cursor-pointer group"
+            className="self-start md:self-auto px-6 py-3 rounded-full bg-[#5A2E1F] text-[#FFF8EE] hover:bg-[#3E1F16] transition-all text-xs font-medium uppercase tracking-wider shadow-md inline-flex items-center gap-2 cursor-pointer group"
           >
-            <Sparkles className="w-4 h-4 text-[#C59B27] group-hover:rotate-12 transition-transform" />
+            <Sparkles className="w-4 h-4 text-[#C9823A] group-hover:rotate-12 transition-transform" />
             <span>Design Custom Cake</span>
           </button>
         </div>
@@ -179,7 +181,7 @@ export default function CakesPage({ onAddToCart, onViewDetails, onNavigateHome, 
 
       {/* Filter & Sort Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="flex flex-wrap items-center justify-between gap-4 bg-white p-3.5 rounded-2xl border border-[#E6DFD5] shadow-xs">
+        <div className="flex flex-wrap items-center justify-between gap-4 bg-white p-3.5 rounded-2xl border border-[#E9D8C5] shadow-xs">
           
           {/* Flavour Pills */}
           <div className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0 w-full md:w-auto">
@@ -195,8 +197,8 @@ export default function CakesPage({ onAddToCart, onViewDetails, onNavigateHome, 
                 onClick={() => { playSound('click'); setActiveFlavour(f.id); }}
                 className={`px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all shrink-0 cursor-pointer ${
                   activeFlavour === f.id
-                    ? 'bg-[#181310] text-white shadow-xs'
-                    : 'bg-[#FAF8F5] text-[#6B5744] hover:bg-[#EBE4DC] hover:text-[#1A1612]'
+                    ? 'bg-[#5A2E1F] text-[#FFF8EE] shadow-xs font-semibold'
+                    : 'bg-[#F4E5D2] text-[#78665C] hover:bg-[#E9D8C5] hover:text-[#2B1A14]'
                 }`}
               >
                 {f.label}
@@ -209,7 +211,7 @@ export default function CakesPage({ onAddToCart, onViewDetails, onNavigateHome, 
             <select
               value={dietaryFilter}
               onChange={(e) => setDietaryFilter(e.target.value)}
-              className="bg-[#FAF8F5] border border-[#E6DFD5] text-xs text-[#1A1612] px-3 py-1.5 rounded-xl focus:outline-none cursor-pointer"
+              className="bg-[#FFF8EE] border border-[#E9D8C5] text-xs text-[#2B1A14] px-3 py-1.5 rounded-xl focus:outline-none cursor-pointer"
             >
               <option value="all">Dietary: All</option>
               <option value="eggless">Eggless</option>
@@ -220,7 +222,7 @@ export default function CakesPage({ onAddToCart, onViewDetails, onNavigateHome, 
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="bg-[#FAF8F5] border border-[#E6DFD5] text-xs text-[#1A1612] px-3 py-1.5 rounded-xl focus:outline-none cursor-pointer"
+              className="bg-[#FFF8EE] border border-[#E9D8C5] text-xs text-[#2B1A14] px-3 py-1.5 rounded-xl focus:outline-none cursor-pointer"
             >
               <option value="featured">Sort by: Featured</option>
               <option value="price-low">Price: Low to High</option>
@@ -236,10 +238,10 @@ export default function CakesPage({ onAddToCart, onViewDetails, onNavigateHome, 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         {filteredCakes.length === 0 ? (
           <div className="py-20 text-center">
-            <p className="text-sm text-[#6B5744]">No cakes found matching the selected filters.</p>
+            <p className="text-sm text-[#78665C]">No cakes found matching the selected filters.</p>
             <button
               onClick={() => { setActiveFlavour('all'); setDietaryFilter('all'); }}
-              className="mt-3 px-5 py-2 rounded-full bg-[#181310] text-white text-xs font-medium cursor-pointer"
+              className="mt-3 px-5 py-2 rounded-full bg-[#5A2E1F] text-white text-xs font-medium cursor-pointer hover:bg-[#3E1F16]"
             >
               Reset Filters
             </button>
@@ -252,23 +254,23 @@ export default function CakesPage({ onAddToCart, onViewDetails, onNavigateHome, 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="group bg-white rounded-3xl p-3 border border-[#E6DFD5] shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+                className="group bg-white rounded-3xl p-3.5 border border-[#E9D8C5] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   {/* Image Container with Wishlist */}
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#F2ECE4] mb-3">
+                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#F4E5D2] mb-3">
                     {cake.isBestseller && (
-                      <span className="absolute top-2.5 left-2.5 z-10 px-2.5 py-0.5 rounded-full bg-[#181310] text-[#FAF8F5] text-[9px] font-semibold uppercase tracking-wider shadow-xs">
+                      <span className="absolute top-2.5 left-2.5 z-10 px-2.5 py-0.5 rounded-full bg-[#5A2E1F] text-[#FFF8EE] text-[9px] font-semibold uppercase tracking-wider shadow-xs">
                         Bestseller
                       </span>
                     )}
 
                     <button
                       onClick={(e) => toggleFavorite(cake.id, e)}
-                      className="absolute top-2.5 right-2.5 z-10 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-[#1A1612] flex items-center justify-center shadow-xs transition-transform active:scale-90 cursor-pointer"
+                      className="absolute top-2.5 right-2.5 z-10 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-[#2B1A14] flex items-center justify-center shadow-xs transition-transform active:scale-90 cursor-pointer"
                       title="Add to Wishlist"
                     >
-                      <Heart className={`w-4 h-4 ${favorites[cake.id] ? 'fill-[#7B3131] text-[#7B3131]' : 'hover:text-[#C59B27]'}`} />
+                      <Heart className={`w-4 h-4 ${favorites[cake.id] ? 'fill-[#5A2E1F] text-[#5A2E1F]' : 'hover:text-[#5A2E1F]'}`} />
                     </button>
 
                     <img
@@ -280,7 +282,7 @@ export default function CakesPage({ onAddToCart, onViewDetails, onNavigateHome, 
                     {/* Quick View Hover Button */}
                     <button
                       onClick={() => { playSound('click'); onViewDetails(cake); }}
-                      className="absolute inset-x-4 bottom-3 py-2 rounded-xl bg-white/95 backdrop-blur-xs text-[#1A1612] text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer hover:bg-[#181310] hover:text-white"
+                      className="absolute inset-x-4 bottom-3 py-2 rounded-xl bg-white/95 backdrop-blur-xs text-[#2B1A14] text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer hover:bg-[#5A2E1F] hover:text-white"
                     >
                       <Eye className="w-3.5 h-3.5" />
                       <span>Quick View</span>
@@ -290,37 +292,36 @@ export default function CakesPage({ onAddToCart, onViewDetails, onNavigateHome, 
                   {/* Info */}
                   <div className="space-y-1.5 px-1">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] uppercase tracking-wider font-semibold text-[#C59B27]">
+                      <span className="text-[10px] uppercase tracking-wider font-semibold text-[#C9823A]">
                         {cake.dietary}
                       </span>
-                      <div className="flex items-center gap-1 text-[11px] font-semibold text-[#1A1612]">
-                        <Star className="w-3 h-3 fill-[#C59B27] text-[#C59B27]" />
+                      <div className="flex items-center gap-1 text-[11px] font-semibold text-[#2B1A14]">
+                        <Star className="w-3 h-3 fill-[#C9823A] text-[#C9823A]" />
                         <span>{cake.rating}</span>
                       </div>
                     </div>
 
-                    <h3 className="font-serif text-base sm:text-lg font-semibold text-[#1A1612] group-hover:text-[#C59B27] transition-colors line-clamp-1">
+                    <h3 className="font-serif text-base sm:text-lg font-semibold text-[#2B1A14] group-hover:text-[#5A2E1F] transition-colors line-clamp-1">
                       {cake.name}
                     </h3>
 
-                    <p className="text-xs text-[#6B5744] font-light line-clamp-2">
+                    <p className="text-xs text-[#78665C] font-light line-clamp-2">
                       {cake.desc}
                     </p>
                   </div>
                 </div>
 
                 {/* Bottom Price & Add to Cart */}
-                <div className="pt-4 px-1 flex items-center justify-between border-t border-[#F2ECE4] mt-3">
-                  <span className="font-serif text-lg sm:text-xl font-bold text-[#1A1612]">
+                <div className="pt-4 px-1 flex items-center justify-between border-t border-[#E9D8C5] mt-3">
+                  <span className="font-serif text-lg sm:text-xl font-bold text-[#2B1A14]">
                     ₹ {cake.price}
                   </span>
 
                   <button
                     onClick={() => { playSound('cart'); onAddToCart(cake); }}
-                    className="px-4 py-2 rounded-full bg-[#181310] text-[#FAF8F5] text-xs font-medium uppercase tracking-wider hover:bg-[#C59B27] transition-all flex items-center gap-1.5 cursor-pointer shadow-xs active:scale-95"
+                    className="px-4 py-2 rounded-full bg-[#5A2E1F] text-[#FFF8EE] text-xs font-medium uppercase tracking-wider hover:bg-[#3E1F16] transition-all flex items-center justify-center cursor-pointer shadow-xs active:scale-95"
                   >
                     <span>Add to Cart</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
 

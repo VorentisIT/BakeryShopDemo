@@ -62,13 +62,13 @@ export default function IngredientStory({ onExploreStory }) {
   const currentIngredient = ingredients[hoveredIdx !== null ? hoveredIdx : selectedIdx];
 
   return (
-    <section className="relative z-20 w-full bg-[#FAF8F5] overflow-hidden">
+    <section className="relative z-20 w-full bg-[#FFF8EE] overflow-hidden">
       
       {/* 
         TOP LINE: 100% Clean, Sharp Straight Line 
-        Background: Deep rich artisan cocoa espresso (#241E18)
+        Background: Dark Chocolate (#3E1F16)
       */}
-      <div className="w-full bg-[#241E18] text-[#FAF8F5] pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-12 relative">
+      <div className="w-full bg-[#3E1F16] text-[#FFF8EE] pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-12 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             
@@ -76,17 +76,17 @@ export default function IngredientStory({ onExploreStory }) {
             <div className="lg:col-span-5 space-y-6 text-center lg:text-left">
               <div>
                 <div className="flex items-center justify-center lg:justify-start gap-2.5 mb-1">
-                  <span className="w-6 h-[1.5px] bg-[#D4A359] block" />
-                  <span className="font-script text-3xl sm:text-4xl text-[#D4A359] tracking-wide">
+                  <span className="w-6 h-[1.5px] bg-[#C9823A] block" />
+                  <span className="font-script text-3xl sm:text-4xl text-[#C9823A] tracking-wide">
                     Goodness
                   </span>
                 </div>
-                <h2 className="font-script text-4xl sm:text-5xl lg:text-6xl text-[#D4A359] leading-[1.05] tracking-wide">
+                <h2 className="font-script text-4xl sm:text-5xl lg:text-6xl text-[#C9823A] leading-[1.05] tracking-wide">
                   in Every Bite
                 </h2>
               </div>
 
-              <p className="text-xs sm:text-sm text-[#D5C8BA] font-light leading-relaxed max-w-sm mx-auto lg:mx-0">
+              <p className="text-xs sm:text-sm text-[#F4E5D2] font-light leading-relaxed max-w-sm mx-auto lg:mx-0">
                 From handpicked nuts to rich cocoa, we source the finest, natural ingredients to create desserts that feel as good as they taste.
               </p>
 
@@ -96,10 +96,9 @@ export default function IngredientStory({ onExploreStory }) {
                     playSound('click');
                     if (onExploreStory) onExploreStory();
                   }}
-                  className="px-7 py-3 rounded-full bg-[#FAF2E6] text-[#241E18] hover:bg-white hover:shadow-lg transition-all font-medium text-xs tracking-wider inline-flex items-center gap-2 cursor-pointer group shadow-sm active:scale-95"
+                  className="px-7 py-3 rounded-full bg-[#FFF8EE] text-[#2B1A14] hover:bg-[#5A2E1F] hover:text-white hover:shadow-lg transition-all font-medium text-xs tracking-wider inline-flex items-center justify-center cursor-pointer shadow-sm active:scale-95"
                 >
                   <span>Our Ingredients</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-[#241E18]" />
                 </button>
               </div>
             </div>
@@ -148,13 +147,13 @@ export default function IngredientStory({ onExploreStory }) {
                         whileTap={{ scale: 0.95 }}
                         className={`relative w-full aspect-[3/4] rounded-2xl p-1.5 overflow-hidden transition-all duration-300 flex flex-col items-center justify-between transform-gpu ${
                           isSelected 
-                            ? 'bg-[#2E2620] border-2 border-[#D4A359] shadow-[0_8px_25px_rgba(212,163,89,0.35)]' 
-                            : 'bg-[#1D1814] border border-[#3E342B] hover:border-[#D4A359]/60 shadow-md'
+                            ? 'bg-[#5A2E1F] border-2 border-[#C9823A] shadow-[0_8px_25px_rgba(201,130,58,0.35)]' 
+                            : 'bg-[#2B1A14] border border-[#5A2E1F] hover:border-[#C9823A]/60 shadow-md'
                         }`}
                       >
                         {/* Selected golden aura glow */}
                         {isSelected && (
-                          <div className="absolute inset-0 bg-[#D4A359]/10 rounded-2xl pointer-events-none" />
+                          <div className="absolute inset-0 bg-[#C9823A]/10 rounded-2xl pointer-events-none" />
                         )}
 
                         {/* Separate High-Definition Food Item Image */}
@@ -170,8 +169,8 @@ export default function IngredientStory({ onExploreStory }) {
                       {/* Ingredient Label Below */}
                       <span className={`text-[11px] sm:text-xs font-serif mt-2 transition-colors text-center ${
                         isSelected 
-                          ? 'text-[#D4A359] font-bold tracking-wide' 
-                          : 'text-[#D5C8BA]/80 group-hover:text-[#FAF8F5]'
+                          ? 'text-[#C9823A] font-bold tracking-wide' 
+                          : 'text-[#F4E5D2]/80 group-hover:text-[#FFF8EE]'
                       }`}>
                         {item.name}
                       </span>
@@ -186,28 +185,28 @@ export default function IngredientStory({ onExploreStory }) {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
-                className="w-full mt-5 p-3.5 rounded-2xl bg-[#1E1915] border border-[#42372E] flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left shadow-lg"
+                className="w-full mt-5 p-3.5 rounded-2xl bg-[#2B1A14] border border-[#5A2E1F] flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left shadow-lg"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-[#D4A359]/20 border border-[#D4A359]/40 flex items-center justify-center shrink-0">
-                    <Sparkles className="w-4 h-4 text-[#D4A359]" />
+                  <div className="w-9 h-9 rounded-full bg-[#C9823A]/20 border border-[#C9823A]/40 flex items-center justify-center shrink-0">
+                    <Sparkles className="w-4 h-4 text-[#C9823A]" />
                   </div>
                   <div>
                     <div className="flex items-center justify-center sm:justify-start gap-2">
-                      <span className="font-serif text-sm font-semibold text-[#FAF8F5]">
+                      <span className="font-serif text-sm font-semibold text-[#FFF8EE]">
                         {currentIngredient.name}
                       </span>
-                      <span className="text-[10px] uppercase font-sans font-semibold px-2 py-0.5 rounded-full bg-[#D4A359]/20 text-[#D4A359]">
+                      <span className="text-[10px] uppercase font-sans font-semibold px-2 py-0.5 rounded-full bg-[#C9823A]/20 text-[#C9823A]">
                         {currentIngredient.origin}
                       </span>
                     </div>
-                    <p className="text-xs text-[#C7B7A6] font-light mt-0.5">
+                    <p className="text-xs text-[#F4E5D2] font-light mt-0.5">
                       {currentIngredient.note}
                     </p>
                   </div>
                 </div>
 
-                <span className="text-[10px] text-[#A69380] italic hidden sm:block shrink-0">
+                <span className="text-[10px] text-[#C9823A]/70 italic hidden sm:block shrink-0">
                   Hover or tap to explore
                 </span>
               </motion.div>
@@ -220,14 +219,14 @@ export default function IngredientStory({ onExploreStory }) {
 
       {/* 
         BOTTOM LINE: UNDENIABLE ORGANIC SNAKE WAVE (S-Curve)
-        The dark cocoa body (#241E18) swoops like a slithering snake, 
+        The dark cocoa body (#3E1F16) swoops like a slithering snake, 
         dipping low under the button, climbing into a crest across the nuts,
         undulating across the chocolate and cream, and revealing the warm cream canvas below!
       */}
       <div className="w-full overflow-hidden leading-none -mt-px pointer-events-none select-none">
         <svg
           viewBox="0 0 1440 100"
-          className="w-full h-16 sm:h-24 lg:h-32 block fill-[#241E18]"
+          className="w-full h-16 sm:h-24 lg:h-32 block fill-[#3E1F16]"
           preserveAspectRatio="none"
         >
           <path

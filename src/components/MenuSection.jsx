@@ -196,8 +196,8 @@ export default function MenuSection({ onAddToCart }) {
                     onClick={() => { playSound('click'); setQuickViewItem(item); }}
                     className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/40 backdrop-blur-xs transition-opacity duration-300 cursor-pointer"
                   >
-                    <span className="px-4 py-2 rounded-full bg-white text-[#1A1612] text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 shadow-md hover:bg-[#1A1612] hover:text-[#D6A84F] transition-all">
-                      <Eye className="w-3.5 h-3.5 text-[#C59B27]" />
+                    <span className="px-4 py-2 rounded-full bg-white text-[#1A1612] text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 shadow-md hover:bg-[#5A2E1F] hover:text-white transition-all">
+                      <Eye className="w-3.5 h-3.5" />
                       Quick View
                     </span>
                   </button>
@@ -212,7 +212,7 @@ export default function MenuSection({ onAddToCart }) {
                 {/* Info & Add Action */}
                 <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
                   <div>
-                    <h3 className="font-serif text-lg font-normal text-[#1A1612] group-hover:text-[#C59B27] group-hover:translate-x-1 transition-all duration-300 line-clamp-1">
+                    <h3 className="font-serif text-lg font-normal text-[#1A1612] group-hover:text-[#5A2E1F] group-hover:translate-x-1 transition-all duration-300 line-clamp-1">
                       {item.name}
                     </h3>
                     <p className="text-xs text-[#6B5744] font-light mt-1 line-clamp-2 leading-relaxed">
@@ -234,7 +234,7 @@ export default function MenuSection({ onAddToCart }) {
                       className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-all cursor-pointer ${
                         isAdded 
                           ? 'bg-[#556B2F] text-white'
-                          : 'bg-[#181310] hover:bg-[#D6A84F] text-[#D6A84F] hover:text-[#181310] border border-[#181310]'
+                          : 'bg-[#181310] hover:bg-[#5A2E1F] text-white border border-[#181310] hover:border-[#5A2E1F]'
                       }`}
                     >
                       {isAdded ? (

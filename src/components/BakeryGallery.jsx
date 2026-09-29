@@ -25,10 +25,9 @@ export default function BakeryGallery() {
         </div>
         <button
           onClick={() => playSound('click')}
-          className="text-xs font-semibold uppercase tracking-widest text-[#1A1612] hover:text-[#C59B27] flex items-center gap-2 cursor-pointer"
+          className="text-xs font-semibold uppercase tracking-widest text-[#1A1612] hover:text-[#C59B27] flex items-center justify-center cursor-pointer"
         >
           <span>View Gallery</span>
-          <ArrowRight className="w-4 h-4 text-[#C59B27]" />
         </button>
       </div>
 

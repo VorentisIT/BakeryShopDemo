@@ -194,11 +194,10 @@ export default function WeeklySpecial({ onOrderNow }) {
               {/* Order CTA Button */}
               <button
                 onClick={() => { playSound('cart'); onOrderNow(currentItem); }}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#181310] text-[#D6A84F] font-semibold text-xs uppercase tracking-widest hover:bg-[#D6A84F] hover:text-[#181310] transition-all shadow-md flex items-center justify-center gap-3 cursor-pointer group"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#5A2E1F] text-[#FFF8EE] font-semibold text-xs uppercase tracking-widest hover:bg-[#3E1F16] transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
               >
                 <ShoppingBag className="w-4 h-4" />
                 <span>Claim Special Offer</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
 
             </div>

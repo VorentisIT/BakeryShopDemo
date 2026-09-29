@@ -33,26 +33,26 @@ export default function TermsPage({ onNavigateHome }) {
   ];
 
   return (
-    <div className="pt-24 pb-16 bg-[#FAF8F5] min-h-screen text-[#1A1612]">
+    <div className="pt-24 pb-16 bg-[#FFF8EE] min-h-screen text-[#2B1A14]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="mb-8 text-center sm:text-left">
           <button
             onClick={() => { playSound('click'); onNavigateHome(); }}
-            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#6B5744] hover:text-[#1A1612] transition-colors cursor-pointer bg-white px-4 py-2 rounded-full border border-[#E6DFD5] shadow-xs active:scale-95 mb-4"
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#78665C] hover:text-[#2B1A14] transition-colors cursor-pointer bg-white px-4 py-2 rounded-full border border-[#E9D8C5] shadow-xs active:scale-95 mb-4"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to Home</span>
           </button>
 
-          <span className="font-script text-3xl sm:text-4xl text-[#C59B27] block">
+          <span className="font-script text-3xl sm:text-4xl text-[#C9823A] block">
             Simple & Transparent
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl font-normal text-[#1A1612] mt-1">
+          <h1 className="font-serif text-4xl sm:text-5xl font-normal text-[#2B1A14] mt-1">
             Terms & Conditions
           </h1>
-          <p className="text-xs sm:text-sm text-[#6B5744] font-light mt-2 max-w-xl leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#78665C] font-light mt-2 max-w-xl leading-relaxed">
             Our straightforward commitments to quality, freshness, and bespoke service.
           </p>
         </div>
@@ -65,16 +65,16 @@ export default function TermsPage({ onNavigateHome }) {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.05 }}
-              className="p-5 sm:p-6 rounded-2xl bg-white border border-[#E6DFD5] shadow-xs flex items-start gap-4 hover:border-[#C59B27]/40 transition-colors"
+              className="p-5 sm:p-6 rounded-2xl bg-white border border-[#E9D8C5] shadow-xs flex items-start gap-4 hover:border-[#5A2E1F]/40 transition-colors"
             >
-              <div className="w-9 h-9 rounded-full bg-[#FAF5EE] text-[#C59B27] flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-9 h-9 rounded-full bg-[#F4E5D2] text-[#5A2E1F] flex items-center justify-center shrink-0 mt-0.5">
                 <item.icon className="w-4 h-4" />
               </div>
               <div className="space-y-1">
-                <h3 className="font-serif text-base sm:text-lg font-medium text-[#1A1612]">
+                <h3 className="font-serif text-base sm:text-lg font-medium text-[#2B1A14]">
                   {item.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#6B5744] font-light leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#78665C] font-light leading-relaxed">
                   {item.text}
                 </p>
               </div>
@@ -83,9 +83,9 @@ export default function TermsPage({ onNavigateHome }) {
         </div>
 
         {/* Footer Contact Callout */}
-        <div className="mt-8 p-5 rounded-2xl bg-[#F7F2EC] border border-[#E6DFD5] text-center text-xs text-[#6B5744]">
+        <div className="mt-8 p-5 rounded-2xl bg-[#F4E5D2] border border-[#E9D8C5] text-center text-xs text-[#78665C]">
           <span>Have questions about your order? Reach our bakery concierge anytime at </span>
-          <a href="mailto:concierge@delicebakery.com" className="font-semibold text-[#C59B27] hover:underline">
+          <a href="mailto:concierge@delicebakery.com" className="font-semibold text-[#5A2E1F] hover:underline">
             concierge@delicebakery.com
           </a>
         </div>

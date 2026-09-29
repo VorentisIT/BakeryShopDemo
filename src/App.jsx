@@ -104,7 +104,7 @@ export default function App() {
   const totalCartItemsCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-[#1A1612] font-sans antialiased overflow-x-hidden selection:bg-[#C59B27] selection:text-white">
+    <div className="min-h-screen font-sans antialiased overflow-x-hidden bg-[#FFF8EE] text-[#2B1A14] selection:bg-[#C9823A] selection:text-white">
       
       {/* 1. STICKY HEADER - Always Visible with Active Link Underline */}
       <Navbar

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowLeft, 
-  ArrowRight, 
   Sparkles, 
   Check, 
   Calendar, 
@@ -92,20 +91,20 @@ export default function ServicesPage({
   const activeImageObj = galleryList[activeGalleryIndex] || galleryList[0];
 
   return (
-    <div className="pt-24 pb-24 bg-[#FAF8F5] min-h-screen text-[#1A1612]">
+    <div className="pt-24 pb-24 bg-[#FFF8EE] min-h-screen text-[#2B1A14]">
       
       {/* 1. TOP HEADER & BREADCRUMBS */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-6 border-b border-[#E6DFD5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-6 border-b border-[#E9D8C5]">
         <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
           <button
             onClick={() => { playSound('click'); onNavigateHome(); }}
-            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#6B5744] hover:text-[#1A1612] transition-colors cursor-pointer bg-white px-4 py-2 rounded-full border border-[#E6DFD5] shadow-xs active:scale-95"
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#78665C] hover:text-[#2B1A14] transition-colors cursor-pointer bg-white px-4 py-2 rounded-full border border-[#E9D8C5] shadow-xs active:scale-95"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Home</span>
           </button>
 
-          <span className="text-xs text-[#C59B27] font-mono uppercase tracking-widest font-semibold flex items-center gap-2">
+          <span className="text-xs text-[#C9823A] font-mono uppercase tracking-widest font-semibold flex items-center gap-2">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Atelier Services / {currentService.shortTitle}</span>
           </span>
@@ -113,22 +112,22 @@ export default function ServicesPage({
 
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-5">
           <div>
-            <span className="font-script text-3xl sm:text-4xl text-[#C59B27] block">
+            <span className="font-script text-3xl sm:text-4xl text-[#C9823A] block">
               Haute Pâtisserie & Bespoke Moments
             </span>
-            <h1 className="font-serif text-4xl sm:text-5xl font-normal text-[#1A1612] mt-1">
+            <h1 className="font-serif text-4xl sm:text-5xl font-normal text-[#2B1A14] mt-1">
               Atelier Services
             </h1>
-            <p className="text-xs sm:text-sm text-[#6B5744] font-light mt-2 max-w-xl leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#78665C] font-light mt-2 max-w-xl leading-relaxed">
               Explore bespoke event designs, high-end pastry catering spreads, corporate luxury gift dockets, and private tasting tables.
             </p>
           </div>
 
           <button
             onClick={() => handleOpenInquiry()}
-            className="px-7 py-3.5 rounded-full bg-[#181310] text-[#FAF8F5] hover:bg-[#C59B27] transition-all font-medium text-xs tracking-wider inline-flex items-center justify-center gap-2.5 shadow-lg cursor-pointer active:scale-95 shrink-0"
+            className="px-7 py-3.5 rounded-full bg-[#5A2E1F] text-[#FFF8EE] hover:bg-[#3E1F16] transition-all font-medium text-xs tracking-wider inline-flex items-center justify-center gap-2.5 shadow-lg cursor-pointer active:scale-95 shrink-0"
           >
-            <MessageSquare className="w-4 h-4 text-[#D6A84F]" />
+            <MessageSquare className="w-4 h-4 text-[#C9823A]" />
             <span>Book a Consultation</span>
           </button>
         </div>
@@ -143,8 +142,8 @@ export default function ServicesPage({
                 onClick={() => handleSelectService(srv.id)}
                 className={`px-5 py-2.5 rounded-full text-xs font-medium tracking-wide whitespace-nowrap transition-all cursor-pointer shrink-0 border ${
                   isSelected
-                    ? 'bg-[#181310] text-[#D6A84F] border-[#181310] shadow-md font-bold scale-[1.02]'
-                    : 'bg-white text-[#6B5744] border-[#E6DFD5] hover:border-[#181310] hover:text-[#1A1612]'
+                    ? 'bg-[#5A2E1F] text-[#FFF8EE] border-[#5A2E1F] shadow-md font-bold scale-[1.02]'
+                    : 'bg-white text-[#78665C] border-[#E9D8C5] hover:border-[#5A2E1F] hover:text-[#2B1A14]'
                 }`}
               >
                 {srv.shortTitle}
@@ -168,36 +167,36 @@ export default function ServicesPage({
             transition={{ duration: 0.35 }}
             className="lg:col-span-6 space-y-6 text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#181310] text-[#FAF8F5] text-[10px] font-bold uppercase tracking-widest shadow-xs">
-              <Sparkles className="w-3 h-3 text-[#D6A84F]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#5A2E1F] text-[#FFF8EE] text-[10px] font-bold uppercase tracking-widest shadow-xs">
+              <Sparkles className="w-3 h-3 text-[#C9823A]" />
               <span>{currentService.badge}</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#1A1612] leading-[1.15]">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#2B1A14] leading-[1.15]">
               {currentService.name}
             </h2>
 
-            <p className="font-serif text-base sm:text-lg italic text-[#C59B27] leading-relaxed">
+            <p className="font-serif text-base sm:text-lg italic text-[#C9823A] leading-relaxed">
               "{currentService.tagline}"
             </p>
 
-            <p className="text-xs sm:text-sm text-[#6B5744] font-light leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#78665C] font-light leading-relaxed">
               {currentService.lead}
             </p>
 
             {/* Quick Metrics / Guarantees */}
-            <div className="grid grid-cols-3 gap-3 py-2 border-y border-[#E6DFD5] max-w-md mx-auto lg:mx-0">
+            <div className="grid grid-cols-3 gap-3 py-2 border-y border-[#E9D8C5] max-w-md mx-auto lg:mx-0">
               <div className="text-center lg:text-left">
-                <span className="block font-serif text-lg font-bold text-[#1A1612]">100%</span>
-                <span className="text-[10px] uppercase tracking-wider text-[#8C6D23] font-medium">Bespoke Recipe</span>
+                <span className="block font-serif text-lg font-bold text-[#2B1A14]">100%</span>
+                <span className="text-[10px] uppercase tracking-wider text-[#C9823A] font-semibold">Bespoke Recipe</span>
               </div>
               <div className="text-center lg:text-left">
-                <span className="block font-serif text-lg font-bold text-[#1A1612]">White Glove</span>
-                <span className="text-[10px] uppercase tracking-wider text-[#8C6D23] font-medium">Venue Delivery</span>
+                <span className="block font-serif text-lg font-bold text-[#2B1A14]">White Glove</span>
+                <span className="text-[10px] uppercase tracking-wider text-[#C9823A] font-semibold">Venue Delivery</span>
               </div>
               <div className="text-center lg:text-left">
-                <span className="block font-serif text-lg font-bold text-[#1A1612]">Chef Lead</span>
-                <span className="text-[10px] uppercase tracking-wider text-[#8C6D23] font-medium">Direct Staging</span>
+                <span className="block font-serif text-lg font-bold text-[#2B1A14]">Chef Lead</span>
+                <span className="text-[10px] uppercase tracking-wider text-[#C9823A] font-semibold">Direct Staging</span>
               </div>
             </div>
 
@@ -205,10 +204,9 @@ export default function ServicesPage({
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2">
               <button
                 onClick={() => handleOpenInquiry()}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#181310] text-[#FAF8F5] hover:bg-[#C59B27] font-medium text-xs tracking-wider transition-all shadow-md inline-flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#5A2E1F] text-[#FFF8EE] hover:bg-[#3E1F16] font-medium text-xs tracking-wider transition-all shadow-md inline-flex items-center justify-center cursor-pointer active:scale-95"
               >
                 <span>Reserve Consultation</span>
-                <ArrowRight className="w-4 h-4" />
               </button>
 
               {currentService.id === 'wedding-cakes' && (
@@ -492,7 +490,7 @@ export default function ServicesPage({
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="font-serif text-xl font-semibold text-[#1A1612] group-hover:text-[#C59B27] transition-colors">
+                    <span className="font-serif text-xl font-semibold text-[#1A1612] group-hover:text-[#5A2E1F] transition-colors">
                       {pkg.name}
                     </span>
                     <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#FAF5EE] text-[#8C6D23] font-semibold">
@@ -507,7 +505,7 @@ export default function ServicesPage({
                   <ul className="space-y-2.5 py-5 text-xs text-[#6B5744]">
                     {pkg.highlights.map((h, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <Check className="w-3.5 h-3.5 text-[#C59B27] shrink-0 mt-0.5" />
+                        <Check className="w-3.5 h-3.5 text-[#C9823A] shrink-0 mt-0.5" />
                         <span>{h}</span>
                       </li>
                     ))}
@@ -516,10 +514,9 @@ export default function ServicesPage({
 
                 <button
                   onClick={() => handleOpenInquiry(pkg)}
-                  className="w-full py-3.5 rounded-full bg-[#181310] text-[#FAF8F5] hover:bg-[#C59B27] font-medium text-xs uppercase tracking-wider transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer active:scale-95 mt-2"
+                  className="w-full py-3.5 rounded-full bg-[#181310] text-[#FAF8F5] hover:bg-[#5A2E1F] font-medium text-xs uppercase tracking-wider transition-all shadow-sm flex items-center justify-center cursor-pointer active:scale-95 mt-2"
                 >
                   <span>Select & Inquire</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </motion.div>
             ))}
@@ -560,11 +557,10 @@ export default function ServicesPage({
           <div className="pt-2">
             <button
               onClick={() => handleOpenInquiry()}
-              className="px-9 py-4 rounded-full bg-[#FAF8F5] text-[#181310] hover:bg-[#C59B27] hover:text-white transition-all font-medium text-xs tracking-wider inline-flex items-center gap-2.5 cursor-pointer shadow-lg active:scale-95"
+              className="px-9 py-4 rounded-full bg-[#FAF8F5] text-[#181310] hover:bg-[#5A2E1F] hover:text-white transition-all font-medium text-xs tracking-wider inline-flex items-center gap-2.5 cursor-pointer shadow-lg active:scale-95"
             >
-              <MessageSquare className="w-4 h-4 text-[#C59B27]" />
+              <MessageSquare className="w-4 h-4 text-[#C9823A]" />
               <span>Schedule a Personal Tasting / Inquiry</span>
-              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
@@ -584,7 +580,7 @@ export default function ServicesPage({
               {/* Close Button */}
               <button
                 onClick={() => setLightboxImage(null)}
-                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 hover:bg-[#C59B27] text-white flex items-center justify-center transition-all cursor-pointer"
+                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 hover:bg-[#5A2E1F] text-white flex items-center justify-center transition-all cursor-pointer"
                 title="Close"
               >
                 <X className="w-5 h-5" />
@@ -746,7 +742,7 @@ export default function ServicesPage({
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-full bg-[#181310] text-[#D6A84F] hover:bg-[#C59B27] hover:text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer active:scale-95 mt-2"
+                    className="w-full py-3.5 rounded-full bg-[#181310] text-[#FAF8F5] hover:bg-[#5A2E1F] font-bold text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer active:scale-95 mt-2"
                   >
                     Submit Atelier Inquiry
                   </button>

@@ -45,26 +45,26 @@ export default function CookiePolicyPage({ onNavigateHome }) {
   ];
 
   return (
-    <div className="pt-24 pb-16 bg-[#FAF8F5] min-h-screen text-[#1A1612]">
+    <div className="pt-24 pb-16 bg-[#FFF8EE] min-h-screen text-[#2B1A14]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="mb-8 text-center sm:text-left">
           <button
             onClick={() => { playSound('click'); onNavigateHome(); }}
-            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#6B5744] hover:text-[#1A1612] transition-colors cursor-pointer bg-white px-4 py-2 rounded-full border border-[#E6DFD5] shadow-xs active:scale-95 mb-4"
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#78665C] hover:text-[#2B1A14] transition-colors cursor-pointer bg-white px-4 py-2 rounded-full border border-[#E9D8C5] shadow-xs active:scale-95 mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Home</span>
           </button>
 
-          <span className="font-script text-3xl sm:text-4xl text-[#C59B27] block">
+          <span className="font-script text-3xl sm:text-4xl text-[#C9823A] block">
             Digital Cookies
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl font-normal text-[#1A1612] mt-1">
+          <h1 className="font-serif text-4xl sm:text-5xl font-normal text-[#2B1A14] mt-1">
             Cookie Preferences
           </h1>
-          <p className="text-xs sm:text-sm text-[#6B5744] font-light mt-2 max-w-xl leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#78665C] font-light mt-2 max-w-xl leading-relaxed">
             We use a few digital cookies to remember your bag and cake designs. You can customize them below anytime.
           </p>
         </div>
@@ -74,20 +74,20 @@ export default function CookiePolicyPage({ onNavigateHome }) {
           {cookieItems.map((c) => (
             <div
               key={c.key}
-              className="p-5 sm:p-6 rounded-2xl bg-white border border-[#E6DFD5] shadow-xs flex items-center justify-between gap-4"
+              className="p-5 sm:p-6 rounded-2xl bg-white border border-[#E9D8C5] shadow-xs flex items-center justify-between gap-4"
             >
               <div className="space-y-1 max-w-xl">
                 <div className="flex items-center gap-2">
-                  <h3 className="font-serif text-base sm:text-lg font-medium text-[#1A1612]">
+                  <h3 className="font-serif text-base sm:text-lg font-medium text-[#2B1A14]">
                     {c.title}
                   </h3>
                   {c.required && (
-                    <span className="text-[9px] uppercase font-mono px-2 py-0.5 rounded-full bg-[#181310] text-[#D6A84F] font-bold">
+                    <span className="text-[9px] uppercase font-mono px-2 py-0.5 rounded-full bg-[#5A2E1F] text-[#FFF8EE] font-bold">
                       Always On
                     </span>
                   )}
                 </div>
-                <p className="text-xs sm:text-sm text-[#6B5744] font-light leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#78665C] font-light leading-relaxed">
                   {c.desc}
                 </p>
               </div>
@@ -97,12 +97,12 @@ export default function CookiePolicyPage({ onNavigateHome }) {
                 disabled={c.required}
                 onClick={() => toggle(c.key)}
                 className={`w-12 h-6 rounded-full transition-colors relative shrink-0 cursor-pointer ${
-                  c.required || preferences[c.key] ? 'bg-[#181310]' : 'bg-[#D5C9BC]'
+                  c.required || preferences[c.key] ? 'bg-[#5A2E1F]' : 'bg-[#E9D8C5]'
                 } ${c.required ? 'cursor-not-allowed opacity-80' : ''}`}
               >
                 <span
                   className={`w-4 h-4 rounded-full bg-white absolute top-1 transition-transform ${
-                    c.required || preferences[c.key] ? 'left-7 bg-[#D6A84F]' : 'left-1'
+                    c.required || preferences[c.key] ? 'left-7 bg-[#C9823A]' : 'left-1'
                   }`}
                 />
               </button>
@@ -111,8 +111,8 @@ export default function CookiePolicyPage({ onNavigateHome }) {
         </div>
 
         {/* Save CTA */}
-        <div className="mt-6 flex items-center justify-between pt-4 border-t border-[#E6DFD5]">
-          <span className="text-xs text-[#8C7A6B]">
+        <div className="mt-6 flex items-center justify-between pt-4 border-t border-[#E9D8C5]">
+          <span className="text-xs text-[#78665C]">
             Preferences are saved on this browser.
           </span>
 
@@ -120,8 +120,8 @@ export default function CookiePolicyPage({ onNavigateHome }) {
             onClick={handleSave}
             className={`px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all shadow-md flex items-center gap-2 cursor-pointer active:scale-95 ${
               saved 
-                ? 'bg-[#556B2F] text-white' 
-                : 'bg-[#181310] text-[#D6A84F] hover:bg-[#C59B27] hover:text-white'
+                ? 'bg-[#5E8060] text-white' 
+                : 'bg-[#5A2E1F] text-[#FFF8EE] hover:bg-[#3E1F16]'
             }`}
           >
             {saved ? (

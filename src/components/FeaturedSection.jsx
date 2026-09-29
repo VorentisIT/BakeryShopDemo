@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Star, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { playSound } from '../utils/sound';
 
 import exactFeaturedCake from '../assets/hd_featured_cake.jpg';
@@ -85,6 +85,14 @@ export default function FeaturedSection({ onAddToCart, onViewDetails }) {
     }
   ];
 
+  // Automatic slide transition
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIdx(prev => (prev + 1) % featuredCakes.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [featuredCakes.length]);
+
   const featuredItem = featuredCakes[currentIdx];
 
   const handleNext = () => {
@@ -98,7 +106,7 @@ export default function FeaturedSection({ onAddToCart, onViewDetails }) {
   };
 
   return (
-    <section className="py-12 sm:py-16 relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-[#FAF8F5]">
+    <section className="py-12 sm:py-16 relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-[#FFF8EE]">
       
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
@@ -111,19 +119,10 @@ export default function FeaturedSection({ onAddToCart, onViewDetails }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35 }}
           >
-            <div className="flex items-center justify-center lg:justify-start gap-2">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#C59B27] block">
-                OUR SIGNATURE
-              </span>
-              <span className="text-[10px] font-mono text-[#6B5744] bg-[#EFE9E1] px-2 py-0.5 rounded-full">
-                0{currentIdx + 1} / 0{featuredCakes.length}
-              </span>
-            </div>
-
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#1A1612] mt-1 leading-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#2B1A14] mt-1 leading-tight">
               {featuredItem.name}
             </h2>
-            <p className="text-xs sm:text-sm text-[#6B5744] font-light mt-3 leading-relaxed max-w-md mx-auto lg:mx-0">
+            <p className="text-xs sm:text-sm text-[#78665C] font-light mt-3 leading-relaxed max-w-md mx-auto lg:mx-0">
               {featuredItem.description}
             </p>
           </motion.div>
@@ -135,11 +134,11 @@ export default function FeaturedSection({ onAddToCart, onViewDetails }) {
             animate={{ opacity: 1, scale: 1 }}
             className="flex items-center justify-center lg:justify-start gap-4"
           >
-            <span className="font-serif text-3xl font-bold text-[#1A1612]">₹ {featuredItem.price}</span>
-            <div className="h-4 w-px bg-[#E6DFD5]" />
-            <div className="flex items-center gap-1.5 text-xs font-semibold text-[#1A1612]">
-              <Star className="w-4 h-4 fill-[#C59B27] text-[#C59B27]" />
-              <span>{featuredItem.rating} <span className="text-[#6B5744] font-normal">({featuredItem.reviewsCount} reviews)</span></span>
+            <span className="font-serif text-3xl font-bold text-[#2B1A14]">₹ {featuredItem.price}</span>
+            <div className="h-4 w-px bg-[#E9D8C5]" />
+            <div className="flex items-center gap-1.5 text-xs font-semibold text-[#2B1A14]">
+              <Star className="w-4 h-4 fill-[#C9823A] text-[#C9823A]" />
+              <span>{featuredItem.rating} <span className="text-[#78665C] font-normal">({featuredItem.reviewsCount} reviews)</span></span>
             </div>
           </motion.div>
 
@@ -147,15 +146,14 @@ export default function FeaturedSection({ onAddToCart, onViewDetails }) {
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
             <button
               onClick={() => { playSound('cart'); onAddToCart(featuredItem); }}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#181310] text-[#FAF8F5] font-medium text-xs uppercase tracking-widest hover:bg-[#C59B27] transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer group active:scale-95"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#5A2E1F] text-[#FFF8EE] font-medium text-xs uppercase tracking-widest hover:bg-[#3E1F16] transition-all shadow-md flex items-center justify-center cursor-pointer active:scale-95"
             >
               <span>Add to Cart</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
 
             <button
               onClick={() => { playSound('click'); if (onViewDetails) onViewDetails(featuredItem); }}
-              className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white text-[#1A1612] border border-[#E6DFD5] font-medium text-xs uppercase tracking-widest hover:border-[#1A1612] transition-all cursor-pointer shadow-xs active:scale-95"
+              className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white text-[#2B1A14] border border-[#E9D8C5] font-medium text-xs uppercase tracking-widest hover:bg-[#5A2E1F] hover:text-white hover:border-[#5A2E1F] transition-all cursor-pointer shadow-xs active:scale-95"
             >
               View Details
             </button>
@@ -165,7 +163,7 @@ export default function FeaturedSection({ onAddToCart, onViewDetails }) {
 
         {/* Right: Master Photographic Cake on Ceramic Plate (7 cols) */}
         <div className="lg:col-span-7 relative flex items-center justify-center">
-          <div className="relative w-full max-w-xl aspect-[16/10] overflow-hidden rounded-3xl shadow-xl border border-[#E6DFD5] bg-[#F2ECE4]">
+          <div className="relative w-full max-w-xl aspect-[16/10] overflow-hidden rounded-3xl shadow-xl border border-[#E9D8C5] bg-[#F4E5D2]">
             
             <AnimatePresence mode="wait">
               <motion.img
@@ -187,7 +185,7 @@ export default function FeaturedSection({ onAddToCart, onViewDetails }) {
                   key={idx}
                   onClick={() => { playSound('click'); setCurrentIdx(idx); }}
                   className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                    currentIdx === idx ? 'w-5 bg-[#C59B27]' : 'w-1.5 bg-white/60 hover:bg-white'
+                    currentIdx === idx ? 'w-5 bg-[#C9823A]' : 'w-1.5 bg-white/60 hover:bg-white'
                   }`}
                   title={`Cake ${idx + 1}`}
                 />
@@ -199,7 +197,7 @@ export default function FeaturedSection({ onAddToCart, onViewDetails }) {
               <button
                 onClick={handlePrev}
                 aria-label="Previous Cake"
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 hover:bg-[#181310] hover:text-[#D6A84F] hover:border-[#181310] text-[#1A1612] flex items-center justify-center shadow-md cursor-pointer border border-[#E6DFD5] transition-all active:scale-95 group"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 hover:bg-[#5A2E1F] hover:text-[#FFF8EE] hover:border-[#5A2E1F] text-[#2B1A14] flex items-center justify-center shadow-md cursor-pointer border border-[#E9D8C5] transition-all active:scale-95 group"
                 title="Previous Cake"
               >
                 <ChevronLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
@@ -207,7 +205,7 @@ export default function FeaturedSection({ onAddToCart, onViewDetails }) {
               <button
                 onClick={handleNext}
                 aria-label="Next Cake"
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 hover:bg-[#181310] hover:text-[#D6A84F] hover:border-[#181310] text-[#1A1612] flex items-center justify-center shadow-md cursor-pointer border border-[#E6DFD5] transition-all active:scale-95 group"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 hover:bg-[#5A2E1F] hover:text-[#FFF8EE] hover:border-[#5A2E1F] text-[#2B1A14] flex items-center justify-center shadow-md cursor-pointer border border-[#E9D8C5] transition-all active:scale-95 group"
                 title="Next Cake"
               >
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />

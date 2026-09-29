@@ -103,7 +103,7 @@ export default function SearchModal({ isOpen, onClose, onAddToCart, onViewDetail
                       className="w-12 h-12 rounded-xl object-cover"
                     />
                     <div>
-                      <h4 className="font-serif text-sm font-semibold text-[#1A1612] group-hover:text-[#C59B27] transition-colors">
+                      <h4 className="font-serif text-sm font-semibold text-[#1A1612] group-hover:text-[#5A2E1F] transition-colors">
                         {item.name}
                       </h4>
                       <div className="flex items-center gap-2 text-[11px] text-[#6B5744]">
@@ -128,7 +128,7 @@ export default function SearchModal({ isOpen, onClose, onAddToCart, onViewDetail
                         onAddToCart(item);
                         onClose();
                       }}
-                      className="p-2 rounded-full bg-[#181310] hover:bg-[#C59B27] text-white transition-all shadow-xs"
+                      className="p-2 rounded-full bg-[#5A2E1F] hover:bg-[#3E1F16] text-white transition-all shadow-xs"
                       title="Add to Cart"
                     >
                       <ShoppingBag className="w-3.5 h-3.5" />

@@ -82,7 +82,7 @@ export default function PriceMenuSection({ onAddToCart }) {
                 {/* Title + Price with Dashed Leader Line */}
                 <div className="flex items-baseline justify-between gap-3">
                   <div className="flex items-center gap-2">
-                    <h3 className="font-serif text-lg font-normal text-[#1A1612] group-hover:text-[#C59B27] transition-colors">
+                    <h3 className="font-serif text-lg font-normal text-[#1A1612] group-hover:text-[#5A2E1F] transition-colors">
                       {item.name}
                     </h3>
                     {item.isHot && (
@@ -121,7 +121,7 @@ export default function PriceMenuSection({ onAddToCart }) {
                       image: '/images/cake_holes.jpg'
                     }, 1);
                   }}
-                  className="px-4 py-1.5 rounded-full bg-[#181310] text-[#D6A84F] hover:bg-[#D6A84F] hover:text-[#181310] text-[10px] uppercase font-semibold tracking-widest border border-[#181310] transition-all flex items-center gap-1.5 cursor-pointer shadow-sm"
+                  className="px-4 py-1.5 rounded-full bg-[#181310] text-[#FAF8F5] hover:bg-[#5A2E1F] text-[10px] uppercase font-semibold tracking-widest border border-[#181310] hover:border-[#5A2E1F] transition-all flex items-center gap-1.5 cursor-pointer shadow-sm"
                 >
                   <ShoppingBag className="w-3 h-3" />
                   <span>Add to Order</span>

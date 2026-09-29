@@ -127,7 +127,7 @@ export default function AccountModal({ isOpen, onClose }) {
           <div className="pt-2 border-t border-[#E6DFD5] flex justify-end">
             <button
               onClick={onClose}
-              className="px-6 py-2.5 rounded-full bg-[#181310] text-white text-xs font-semibold hover:bg-[#C59B27] transition-all cursor-pointer"
+              className="px-6 py-2.5 rounded-full bg-[#181310] text-white text-xs font-semibold hover:bg-[#5A2E1F] transition-all cursor-pointer"
             >
               Done
             </button>
