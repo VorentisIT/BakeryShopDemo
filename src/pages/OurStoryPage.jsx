@@ -15,15 +15,11 @@ export default function OurStoryPage({ onNavigateHome, onOpenVideo, onExploreCak
         <div className="flex items-center justify-between mb-4">
           <button
             onClick={() => { playSound('click'); onNavigateHome(); }}
-            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#78665C] hover:text-[#2B1A14] transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#78665C] hover:text-[#5A2E1F] transition-colors cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Home</span>
           </button>
-
-          <span className="text-xs text-[#C9823A] font-mono uppercase tracking-widest">
-            Home / Our Story & Craft
-          </span>
         </div>
 
         <span className="font-script text-3xl sm:text-4xl text-[#C9823A] block">

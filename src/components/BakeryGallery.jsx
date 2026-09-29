@@ -12,20 +12,20 @@ export default function BakeryGallery() {
   ];
 
   return (
-    <section className="py-20 relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white border-t border-[#E6DFD5]">
+    <section className="py-20 relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white border-t border-[#E9D8C5]">
       
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
         <div>
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#C59B27] block">
+          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#C9823A] block">
             GALLERY
           </span>
-          <h2 className="font-serif text-2xl sm:text-4xl font-normal text-[#1A1612] mt-1">
+          <h2 className="font-serif text-2xl sm:text-4xl font-normal text-[#2B1A14] mt-1">
             Fresh Off The Bakery Floor
           </h2>
         </div>
         <button
           onClick={() => playSound('click')}
-          className="text-xs font-semibold uppercase tracking-widest text-[#1A1612] hover:text-[#C59B27] flex items-center justify-center cursor-pointer"
+          className="text-xs font-semibold uppercase tracking-widest text-[#2B1A14] hover:text-[#C9823A] flex items-center justify-center cursor-pointer transition-colors"
         >
           <span>View Gallery</span>
         </button>
@@ -35,14 +35,14 @@ export default function BakeryGallery() {
         {galleryItems.map((item) => (
           <div
             key={item.id}
-            className="group relative min-w-[260px] sm:min-w-[320px] aspect-[4/5] rounded-2xl overflow-hidden bg-[#FAF8F5] border border-[#E6DFD5] shrink-0 shadow-sm"
+            className="group relative min-w-[260px] sm:min-w-[320px] aspect-[4/5] rounded-2xl overflow-hidden bg-[#F4E5D2] border border-[#E9D8C5] shrink-0 shadow-xs"
           >
             <img
               src={item.img}
               alt={item.title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-70 group-hover:opacity-85 transition-opacity" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#2B1A14]/80 via-transparent to-transparent opacity-70 group-hover:opacity-85 transition-opacity" />
 
             <div className="absolute bottom-4 left-4 right-4 text-white">
               <span className="text-xs font-serif text-white font-medium block">

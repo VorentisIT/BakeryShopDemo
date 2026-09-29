@@ -29,7 +29,7 @@ export default function QuickViewModal({ item, onClose, onAddToCart }) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-[#1A1612]/60 backdrop-blur-sm"
+          className="fixed inset-0 bg-[#2B1A14]/60 backdrop-blur-sm"
         />
 
         {/* Slide-Over Panel */}
@@ -38,18 +38,18 @@ export default function QuickViewModal({ item, onClose, onAddToCart }) {
           animate={{ x: 0 }}
           exit={{ x: '100%' }}
           transition={{ type: 'spring', damping: 28, stiffness: 280 }}
-          className="relative w-full max-w-lg h-full bg-white border-l border-[#E6DFD5] shadow-2xl z-10 flex flex-col justify-between overflow-y-auto"
+          className="relative w-full max-w-lg h-full bg-white border-l border-[#E9D8C5] shadow-2xl z-10 flex flex-col justify-between overflow-y-auto text-[#2B1A14]"
         >
           {/* Close button */}
           <button
             onClick={() => { playSound('click'); onClose(); }}
-            className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-white/90 text-[#1A1612] hover:bg-[#FAF8F5] border border-[#E6DFD5] shadow-md"
+            className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-white/90 text-[#2B1A14] hover:bg-[#FFF8EE] border border-[#E9D8C5] shadow-md cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
 
           {/* Product Image */}
-          <div className="relative aspect-square w-full bg-[#FAF8F5] overflow-hidden flex items-center justify-center p-8 border-b border-[#E6DFD5]">
+          <div className="relative aspect-square w-full bg-[#FFF8EE] overflow-hidden flex items-center justify-center p-8 border-b border-[#E9D8C5]">
             <img
               src={item.image}
               alt={item.name}
@@ -60,24 +60,24 @@ export default function QuickViewModal({ item, onClose, onAddToCart }) {
           {/* Product Info */}
           <div className="p-8 flex-1 space-y-6">
             <div>
-              <div className="flex items-center gap-2 text-[10px] font-semibold text-[#C59B27] uppercase tracking-[0.2em]">
+              <div className="flex items-center gap-2 text-[10px] font-semibold text-[#C9823A] uppercase tracking-[0.2em]">
                 <span>{item.category}</span>
                 <span>•</span>
-                <div className="flex items-center text-[#C59B27]">
-                  <Star className="w-3.5 h-3.5 fill-[#C59B27] text-[#C59B27] mr-1" />
+                <div className="flex items-center text-[#C9823A]">
+                  <Star className="w-3.5 h-3.5 fill-[#C9823A] text-[#C9823A] mr-1" />
                   <span>{item.rating} ({item.reviewsCount} reviews)</span>
                 </div>
               </div>
 
-              <h2 className="font-serif text-3xl font-normal text-[#1A1612] mt-2">
+              <h2 className="font-serif text-3xl font-normal text-[#2B1A14] mt-2">
                 {item.name}
               </h2>
 
-              <p className="text-2xl font-bold font-serif text-[#C59B27] mt-2">
+              <p className="text-2xl font-bold font-serif text-[#5A2E1F] mt-2">
                 ₹{item.price}
               </p>
 
-              <p className="text-sm text-[#6B5744] font-light mt-4 leading-relaxed">
+              <p className="text-sm text-[#78665C] font-light mt-4 leading-relaxed">
                 {item.description}
               </p>
 
@@ -87,7 +87,7 @@ export default function QuickViewModal({ item, onClose, onAddToCart }) {
                   {item.dietary.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 rounded-full bg-[#FAF8F5] text-[#C59B27] border border-[#E6DFD5] text-xs font-medium"
+                      className="px-3 py-1 rounded-full bg-[#F4E5D2] text-[#5A2E1F] border border-[#E9D8C5] text-xs font-semibold"
                     >
                       {tag}
                     </span>
@@ -96,20 +96,20 @@ export default function QuickViewModal({ item, onClose, onAddToCart }) {
               )}
 
               {/* Specifications */}
-              <div className="mt-6 space-y-2 pt-4 border-t border-[#E6DFD5] text-xs text-[#6B5744]">
+              <div className="mt-6 space-y-2 pt-4 border-t border-[#E9D8C5] text-xs text-[#78665C]">
                 <div className="flex justify-between">
                   <span>Process:</span>
-                  <span className="font-medium text-[#1A1612]">{item.prepTime || 'Freshly Baked Daily'}</span>
+                  <span className="font-medium text-[#2B1A14]">{item.prepTime || 'Freshly Baked Daily'}</span>
                 </div>
                 {item.calories && (
                   <div className="flex justify-between">
                     <span>Calories:</span>
-                    <span className="font-medium text-[#1A1612]">{item.calories}</span>
+                    <span className="font-medium text-[#2B1A14]">{item.calories}</span>
                   </div>
                 )}
                 <div className="flex justify-between">
                   <span>Allergens:</span>
-                  <span className="font-medium text-[#1A1612]">
+                  <span className="font-medium text-[#2B1A14]">
                     {item.allergens && Array.isArray(item.allergens) && item.allergens.length > 0
                       ? item.allergens.join(', ')
                       : 'Dairy, Gluten, Nuts (Prepared in artisan facility)'}
@@ -119,22 +119,22 @@ export default function QuickViewModal({ item, onClose, onAddToCart }) {
             </div>
 
             {/* Quantity Selector & Add CTA */}
-            <div className="space-y-4 pt-4 border-t border-[#E6DFD5]">
+            <div className="space-y-4 pt-4 border-t border-[#E9D8C5]">
               <div className="flex items-center justify-between">
-                <span className="text-xs text-[#6B5744] uppercase tracking-widest font-medium">
+                <span className="text-xs text-[#78665C] uppercase tracking-widest font-medium">
                   Quantity
                 </span>
-                <div className="flex items-center gap-3 bg-[#FAF8F5] border border-[#E6DFD5] rounded-xl px-3 py-1">
+                <div className="flex items-center gap-3 bg-[#FFF8EE] border border-[#E9D8C5] rounded-xl px-3 py-1">
                   <button
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="text-[#1A1612] text-lg font-bold px-1"
+                    className="text-[#2B1A14] text-lg font-bold px-1 cursor-pointer"
                   >
                     -
                   </button>
-                  <span className="text-[#1A1612] font-bold w-6 text-center">{quantity}</span>
+                  <span className="text-[#2B1A14] font-bold w-6 text-center">{quantity}</span>
                   <button
                     onClick={() => setQuantity(quantity + 1)}
-                    className="text-[#1A1612] text-lg font-bold px-1"
+                    className="text-[#2B1A14] text-lg font-bold px-1 cursor-pointer"
                   >
                     +
                   </button>
@@ -144,10 +144,10 @@ export default function QuickViewModal({ item, onClose, onAddToCart }) {
               <button
                 onClick={handleAdd}
                 disabled={added}
-                className={`w-full py-4 rounded-full font-semibold text-xs uppercase tracking-widest transition-all shadow-md flex items-center justify-center gap-2 ${
+                className={`w-full py-4 rounded-full font-semibold text-xs uppercase tracking-widest transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-95 ${
                   added 
-                    ? 'bg-[#8C9A70] text-white' 
-                    : 'bg-[#181310] text-[#FAF8F5] hover:bg-[#5A2E1F]'
+                    ? 'bg-[#5E8060] text-white' 
+                    : 'bg-[#5A2E1F] text-[#FFF8EE] hover:bg-[#3E1F16]'
                 }`}
               >
                 {added ? (

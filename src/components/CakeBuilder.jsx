@@ -34,7 +34,7 @@ export default function CakeBuilder({ onAddToCart }) {
     { id: 'vanillacream', label: 'Vanilla Cream', color: '#F5EBDD', price: 0 },
     { id: 'ganache', label: 'Dark Chocolate Ganache', color: '#1A0E08', price: 0 },
     { id: 'raspberry', label: 'Raspberry Compote', color: '#7B3131', price: 80 },
-    { id: 'caramel', label: 'Salted Caramel', color: '#D6A84F', price: 80 },
+    { id: 'caramel', label: 'Salted Caramel', color: '#C9823A', price: 80 },
     { id: 'praline', label: 'Pistachio Praline', color: '#5A3826', price: 120 },
   ];
 
@@ -68,7 +68,7 @@ export default function CakeBuilder({ onAddToCart }) {
       ingredients: [sponge.label, filling.label, topping.label],
       allergens: ['Wheat', 'Milk', 'Eggs'],
       calories: '390 kcal / slice',
-      prepTime: 'Custom Handcrafted 24h'
+      prepTime: '24-48 Hours Artisan Craft'
     };
 
     onAddToCart(customCakeItem, 1);
@@ -80,13 +80,13 @@ export default function CakeBuilder({ onAddToCart }) {
     <div id="cake-builder" className="w-full">
       {/* Header */}
       <div className="text-center max-w-xl mx-auto space-y-1 mb-6">
-        <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.3em] text-[#C59B27] block">
+        <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.3em] text-[#C9823A] block">
           INTERACTIVE CONFIGURATOR
         </span>
-        <h2 className="font-serif text-2xl sm:text-3xl font-normal text-[#1A1612]">
-          Custom Cake <span className="italic text-[#C59B27]">Builder</span>
+        <h2 className="font-serif text-2xl sm:text-3xl font-normal text-[#2B1A14]">
+          Custom Cake <span className="italic text-[#C9823A]">Builder</span>
         </h2>
-        <p className="text-xs text-[#6B5744] font-light">
+        <p className="text-xs text-[#78665C] font-light">
           Your story. Your cake.
         </p>
       </div>
@@ -107,8 +107,8 @@ export default function CakeBuilder({ onAddToCart }) {
                 onClick={() => handleStepChange(s.num)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap cursor-pointer ${
                   activeStep === s.num
-                    ? 'bg-[#181310] text-[#D6A84F] font-bold shadow-md'
-                    : 'bg-white text-[#6B5744] border border-[#E6DFD5] hover:border-[#1A1612]'
+                    ? 'bg-[#5A2E1F] text-[#FFF8EE] font-bold shadow-md'
+                    : 'bg-white text-[#78665C] border border-[#E9D8C5] hover:border-[#5A2E1F]'
                 }`}
               >
                 <Icon className="w-3.5 h-3.5" />
@@ -126,7 +126,7 @@ export default function CakeBuilder({ onAddToCart }) {
             {/* Step 1: Tiers */}
             {activeStep === 1 && (
               <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="space-y-4">
-                <h3 className="text-xs font-semibold text-[#C59B27] uppercase tracking-widest">Step 01: Choose Tiers</h3>
+                <h3 className="text-xs font-semibold text-[#C9823A] uppercase tracking-widest">Step 01: Choose Tiers</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {tierOptions.map((t) => (
                     <button
@@ -134,12 +134,12 @@ export default function CakeBuilder({ onAddToCart }) {
                       onClick={() => { playSound('click'); setTiers(t); }}
                       className={`p-4 rounded-xl text-left border transition-all cursor-pointer ${
                         tiers.id === t.id
-                          ? 'border-[#C59B27] bg-white shadow-md'
-                          : 'border-[#E6DFD5] bg-white hover:border-[#C59B27]/40'
+                          ? 'border-[#5A2E1F] bg-white shadow-md'
+                          : 'border-[#E9D8C5] bg-white hover:border-[#5A2E1F]/50'
                       }`}
                     >
-                      <p className="font-serif text-[#1A1612] text-sm">{t.label}</p>
-                      <p className="text-[#C59B27] font-bold text-xs mt-1">₹{t.price}</p>
+                      <p className="font-serif text-[#2B1A14] text-sm font-semibold">{t.label}</p>
+                      <p className="text-[#5A2E1F] font-bold text-xs mt-1">₹{t.price}</p>
                     </button>
                   ))}
                 </div>
@@ -149,7 +149,7 @@ export default function CakeBuilder({ onAddToCart }) {
             {/* Step 2: Sponge */}
             {activeStep === 2 && (
               <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="space-y-4">
-                <h3 className="text-xs font-semibold text-[#C59B27] uppercase tracking-widest">Step 02: Choose Sponge</h3>
+                <h3 className="text-xs font-semibold text-[#C9823A] uppercase tracking-widest">Step 02: Choose Sponge</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {spongeOptions.map((s) => (
                     <button
@@ -157,15 +157,15 @@ export default function CakeBuilder({ onAddToCart }) {
                       onClick={() => { playSound('click'); setSponge(s); }}
                       className={`p-4 rounded-xl flex items-center justify-between border transition-all cursor-pointer ${
                         sponge.id === s.id
-                          ? 'border-[#C59B27] bg-white shadow-md'
-                          : 'border-[#E6DFD5] bg-white hover:border-[#C59B27]/40'
+                          ? 'border-[#5A2E1F] bg-white shadow-md'
+                          : 'border-[#E9D8C5] bg-white hover:border-[#5A2E1F]/50'
                       }`}
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full border border-[#E6DFD5]" style={{ backgroundColor: s.color }} />
-                        <span className="font-serif text-[#1A1612] text-sm">{s.label}</span>
+                        <div className="w-5 h-5 rounded-full border border-[#E9D8C5]" style={{ backgroundColor: s.color }} />
+                        <span className="font-serif text-[#2B1A14] text-sm">{s.label}</span>
                       </div>
-                      <span className="text-xs text-[#C59B27] font-bold">{s.price > 0 ? `+₹${s.price}` : 'Included'}</span>
+                      <span className="text-xs text-[#5A2E1F] font-bold">{s.price > 0 ? `+₹${s.price}` : 'Included'}</span>
                     </button>
                   ))}
                 </div>
@@ -175,7 +175,7 @@ export default function CakeBuilder({ onAddToCart }) {
             {/* Step 3: Filling */}
             {activeStep === 3 && (
               <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="space-y-4">
-                <h3 className="text-xs font-semibold text-[#C59B27] uppercase tracking-widest">Step 03: Choose Filling</h3>
+                <h3 className="text-xs font-semibold text-[#C9823A] uppercase tracking-widest">Step 03: Choose Filling</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {fillingOptions.map((f) => (
                     <button
@@ -183,15 +183,15 @@ export default function CakeBuilder({ onAddToCart }) {
                       onClick={() => { playSound('click'); setFilling(f); }}
                       className={`p-4 rounded-xl flex items-center justify-between border transition-all cursor-pointer ${
                         filling.id === f.id
-                          ? 'border-[#C59B27] bg-white shadow-md'
-                          : 'border-[#E6DFD5] bg-white hover:border-[#C59B27]/40'
+                          ? 'border-[#5A2E1F] bg-white shadow-md'
+                          : 'border-[#E9D8C5] bg-white hover:border-[#5A2E1F]/50'
                       }`}
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full border border-[#E6DFD5]" style={{ backgroundColor: f.color }} />
-                        <span className="font-serif text-[#1A1612] text-sm">{f.label}</span>
+                        <div className="w-5 h-5 rounded-full border border-[#E9D8C5]" style={{ backgroundColor: f.color }} />
+                        <span className="font-serif text-[#2B1A14] text-sm">{f.label}</span>
                       </div>
-                      <span className="text-xs text-[#C59B27] font-bold">{f.price > 0 ? `+₹${f.price}` : 'Included'}</span>
+                      <span className="text-xs text-[#5A2E1F] font-bold">{f.price > 0 ? `+₹${f.price}` : 'Included'}</span>
                     </button>
                   ))}
                 </div>
@@ -201,7 +201,7 @@ export default function CakeBuilder({ onAddToCart }) {
             {/* Step 4: Topping */}
             {activeStep === 4 && (
               <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="space-y-4">
-                <h3 className="text-xs font-semibold text-[#C59B27] uppercase tracking-widest">Step 04: Choose Toppings</h3>
+                <h3 className="text-xs font-semibold text-[#C9823A] uppercase tracking-widest">Step 04: Choose Toppings</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {toppingOptions.map((top) => (
                     <button
@@ -209,15 +209,15 @@ export default function CakeBuilder({ onAddToCart }) {
                       onClick={() => { playSound('click'); setTopping(top); }}
                       className={`p-4 rounded-xl flex items-center justify-between border transition-all cursor-pointer ${
                         topping.id === top.id
-                          ? 'border-[#C59B27] bg-white shadow-md'
-                          : 'border-[#E6DFD5] bg-white hover:border-[#C59B27]/40'
+                          ? 'border-[#5A2E1F] bg-white shadow-md'
+                          : 'border-[#E9D8C5] bg-white hover:border-[#5A2E1F]/50'
                       }`}
                     >
                       <div className="flex items-center gap-3">
                         <span className="text-lg">{top.icon}</span>
-                        <span className="font-serif text-[#1A1612] text-sm">{top.label}</span>
+                        <span className="font-serif text-[#2B1A14] text-sm">{top.label}</span>
                       </div>
-                      <span className="text-xs text-[#C59B27] font-bold">{top.price > 0 ? `+₹${top.price}` : 'Included'}</span>
+                      <span className="text-xs text-[#5A2E1F] font-bold">{top.price > 0 ? `+₹${top.price}` : 'Included'}</span>
                     </button>
                   ))}
                 </div>
@@ -227,18 +227,18 @@ export default function CakeBuilder({ onAddToCart }) {
             {/* Step 5: Inscription */}
             {activeStep === 5 && (
               <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="space-y-4">
-                <h3 className="text-xs font-semibold text-[#C59B27] uppercase tracking-widest">Step 05: Add Message</h3>
+                <h3 className="text-xs font-semibold text-[#C9823A] uppercase tracking-widest">Step 05: Add Message</h3>
                 <div>
-                  <label className="text-xs text-[#6B5744] block mb-2 font-medium">Custom Sugar Ribbon Inscription:</label>
+                  <label className="text-xs text-[#78665C] block mb-2 font-medium">Custom Sugar Ribbon Inscription:</label>
                   <input
                     type="text"
                     maxLength={30}
                     value={inscription}
                     onChange={(e) => setInscription(e.target.value)}
                     placeholder="e.g. Happy Birthday Sarah!"
-                    className="w-full bg-white text-[#1A1612] text-xs p-3.5 rounded-xl border border-[#E6DFD5] focus:outline-none focus:border-[#C59B27]"
+                    className="w-full bg-white text-[#2B1A14] text-xs p-3.5 rounded-xl border border-[#E9D8C5] focus:outline-none focus:border-[#5A2E1F]"
                   />
-                  <p className="text-[10px] text-[#6B5744]/70 mt-1">Hand-piped in golden cocoa butter script on edible fondant ribbon.</p>
+                  <p className="text-[10px] text-[#78665C]/70 mt-1">Hand-piped in golden cocoa butter script on edible fondant ribbon.</p>
                 </div>
               </motion.div>
             )}
@@ -247,51 +247,51 @@ export default function CakeBuilder({ onAddToCart }) {
 
           {/* Right Column: Persistent Creation Summary Card */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-sm rounded-2xl bg-white p-6 border border-[#E6DFD5] flex flex-col justify-between space-y-6 shadow-sm">
+            <div className="relative w-full max-w-sm rounded-2xl bg-white p-6 border border-[#E9D8C5] flex flex-col justify-between space-y-6 shadow-sm">
               
               <div>
-                <span className="text-[9px] text-[#C59B27] uppercase tracking-[0.25em] font-semibold block">
+                <span className="text-[9px] text-[#C9823A] uppercase tracking-[0.25em] font-semibold block">
                   YOUR CREATION
                 </span>
-                <h4 className="font-serif text-xl text-[#1A1612] mt-1">
+                <h4 className="font-serif text-xl text-[#2B1A14] mt-1">
                   {tiers.label}
                 </h4>
 
-                <div className="mt-4 space-y-2 text-xs text-[#6B5744] pt-4 border-t border-[#E6DFD5]">
-                  <div className="flex justify-between"><span>Sponge:</span> <span className="text-[#1A1612] font-semibold">{sponge.label}</span></div>
-                  <div className="flex justify-between"><span>Filling:</span> <span className="text-[#1A1612] font-semibold">{filling.label}</span></div>
-                  <div className="flex justify-between"><span>Topping:</span> <span className="text-[#1A1612] font-semibold">{topping.label}</span></div>
+                <div className="mt-4 space-y-2 text-xs text-[#78665C] pt-4 border-t border-[#E9D8C5]">
+                  <div className="flex justify-between"><span>Sponge:</span> <span className="text-[#2B1A14] font-semibold">{sponge.label}</span></div>
+                  <div className="flex justify-between"><span>Filling:</span> <span className="text-[#2B1A14] font-semibold">{filling.label}</span></div>
+                  <div className="flex justify-between"><span>Topping:</span> <span className="text-[#2B1A14] font-semibold">{topping.label}</span></div>
                   {inscription.trim() && (
-                    <div className="flex justify-between"><span>Message:</span> <span className="text-[#C59B27] font-serif italic">"{inscription}"</span></div>
+                    <div className="flex justify-between"><span>Message:</span> <span className="text-[#5A2E1F] font-serif italic">"{inscription}"</span></div>
                   )}
                 </div>
               </div>
 
               {/* Live Preview graphic */}
-              <div className="w-full h-36 bg-[#FAF8F5] rounded-xl border border-[#E6DFD5] flex items-center justify-center relative p-3 overflow-hidden">
+              <div className="w-full h-36 bg-[#FFF8EE] rounded-xl border border-[#E9D8C5] flex items-center justify-center relative p-3 overflow-hidden">
                 <TransparentImg
                   src="/images/cake_holes.jpg"
                   alt="Custom Cake Live Preview"
                   className="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.12)]"
                 />
                 {inscription.trim() && (
-                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-[#181310] text-[#D6A84F] font-serif text-[9px] font-bold truncate max-w-[180px] shadow-md">
+                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-[#5A2E1F] text-[#FFF8EE] font-serif text-[9px] font-bold truncate max-w-[180px] shadow-md">
                     "{inscription}"
                   </div>
                 )}
               </div>
 
               {/* Total & Add CTA */}
-              <div className="pt-4 border-t border-[#E6DFD5] space-y-3">
+              <div className="pt-4 border-t border-[#E9D8C5] space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-xs uppercase tracking-widest text-[#6B5744] font-semibold">Total</span>
-                  <span className="font-serif text-2xl font-bold text-[#1A1612]">₹{totalPrice}</span>
+                  <span className="text-xs uppercase tracking-widest text-[#78665C] font-semibold">Total</span>
+                  <span className="font-serif text-2xl font-bold text-[#2B1A14]">₹{totalPrice}</span>
                 </div>
 
                 <button
                   onClick={handleAddCustomCake}
                   className={`w-full py-3.5 rounded-full font-semibold text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-2 cursor-pointer ${
-                    added ? 'bg-[#556B2F] text-white' : 'bg-[#181310] text-[#D6A84F] hover:bg-[#D6A84F] hover:text-[#181310]'
+                    added ? 'bg-[#5E8060] text-white' : 'bg-[#5A2E1F] text-[#FFF8EE] hover:bg-[#3E1F16]'
                   }`}
                 >
                   {added ? (

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle2, ShieldCheck, CreditCard, Sparkles, MapPin, Truck } from 'lucide-react';
 import { playSound } from '../utils/sound';
+import CustomDropdown from './CustomDropdown';
 
 export default function CheckoutModal({
   isOpen,
@@ -15,7 +16,7 @@ export default function CheckoutModal({
   const [formData, setFormData] = useState({
     name: 'Eleanor Vance',
     email: 'eleanor@vance-atelier.com',
-    phone: '+91 98200 44321',
+    phone: '+91 62397 96319',
     address: 'Boutique Residence, 4th Floor, Pali Hill, Bandra West, Mumbai 400050',
     cardNumber: '•••• •••• •••• 4242',
     exp: '12/28',
@@ -127,15 +128,17 @@ export default function CheckoutModal({
                 <label className="text-xs text-[#78665C] font-medium block mb-1">
                   Select Delivery Time Slot:
                 </label>
-                <select
+                <CustomDropdown
                   value={pickupSlot}
-                  onChange={(e) => setPickupSlot(e.target.value)}
-                  className="w-full bg-[#FFF8EE] text-[#2B1A14] text-xs p-3 rounded-xl border border-[#E9D8C5] focus:outline-none cursor-pointer"
-                >
-                  <option>09:00 AM - 11:00 AM (Morning Bake)</option>
-                  <option>01:00 PM - 03:00 PM (Midday Fresh Batch)</option>
-                  <option>05:00 PM - 07:00 PM (Evening Pastry Batch)</option>
-                </select>
+                  onChange={setPickupSlot}
+                  options={[
+                    '09:00 AM - 11:00 AM (Morning Bake)',
+                    '01:00 PM - 03:00 PM (Midday Fresh Batch)',
+                    '05:00 PM - 07:00 PM (Evening Pastry Batch)'
+                  ]}
+                  icon={Truck}
+                  buttonClassName="py-3 bg-[#FFF8EE]"
+                />
               </div>
 
               {/* Form Inputs */}

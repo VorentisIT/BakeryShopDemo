@@ -48,35 +48,35 @@ export default function SearchModal({ isOpen, onClose, onAddToCart, onViewDetail
           initial={{ opacity: 0, scale: 0.95, y: -20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: -20 }}
-          className="bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-[#E6DFD5] relative overflow-hidden"
+          className="bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-[#E9D8C5] relative overflow-hidden"
         >
           {/* Header & Input */}
-          <div className="flex items-center gap-3 pb-4 border-b border-[#E6DFD5]">
-            <Search className="w-5 h-5 text-[#C59B27]" />
+          <div className="flex items-center gap-3 pb-4 border-b border-[#E9D8C5]">
+            <Search className="w-5 h-5 text-[#C9823A]" />
             <input
               type="text"
               autoFocus
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search cakes, croissants, macarons, cookies..."
-              className="w-full bg-transparent text-sm sm:text-base text-[#1A1612] placeholder-[#8C7A68] focus:outline-none"
+              className="w-full bg-transparent text-sm sm:text-base text-[#2B1A14] placeholder-[#78665C] focus:outline-none"
             />
             <button
               onClick={onClose}
-              className="p-1.5 rounded-full hover:bg-[#FAF8F5] text-[#6B5744] hover:text-[#1A1612] transition-colors cursor-pointer"
+              className="p-1.5 rounded-full hover:bg-[#FFF8EE] text-[#78665C] hover:text-[#2B1A14] transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
           {/* Quick Filter Tags */}
-          <div className="flex items-center gap-2 py-3 border-b border-[#F2ECE4] text-xs">
-            <span className="text-[#8C7A68]">Popular:</span>
+          <div className="flex items-center gap-2 py-3 border-b border-[#E9D8C5] text-xs">
+            <span className="text-[#78665C]">Popular:</span>
             {['Chocolate', 'Pistachio', 'Croissant', 'Macarons'].map(tag => (
               <button
                 key={tag}
                 onClick={() => { playSound('click'); setQuery(tag); }}
-                className="px-2.5 py-1 rounded-full bg-[#FAF8F5] hover:bg-[#EBE4DC] text-[#1A1612] font-medium transition-colors cursor-pointer"
+                className="px-2.5 py-1 rounded-full bg-[#FFF8EE] hover:bg-[#F4E5D2] text-[#2B1A14] font-medium transition-colors cursor-pointer border border-[#E9D8C5]"
               >
                 {tag}
               </button>
@@ -84,16 +84,16 @@ export default function SearchModal({ isOpen, onClose, onAddToCart, onViewDetail
           </div>
 
           {/* Results List */}
-          <div className="max-h-[55vh] overflow-y-auto divide-y divide-[#F2ECE4] py-2">
+          <div className="max-h-[55vh] overflow-y-auto divide-y divide-[#E9D8C5] py-2">
             {results.length === 0 ? (
-              <div className="py-12 text-center text-xs text-[#8C7A68]">
+              <div className="py-12 text-center text-xs text-[#78665C]">
                 No delicious creations found matching "{query}".
               </div>
             ) : (
               results.map(item => (
                 <div
                   key={item.id}
-                  className="py-3 flex items-center justify-between gap-4 hover:bg-[#FAF8F5] px-2 rounded-xl transition-colors group cursor-pointer"
+                  className="py-3 flex items-center justify-between gap-4 hover:bg-[#FFF8EE] px-2 rounded-xl transition-colors group cursor-pointer"
                   onClick={() => { playSound('click'); onViewDetails(item); onClose(); }}
                 >
                   <div className="flex items-center gap-3">
@@ -103,14 +103,14 @@ export default function SearchModal({ isOpen, onClose, onAddToCart, onViewDetail
                       className="w-12 h-12 rounded-xl object-cover"
                     />
                     <div>
-                      <h4 className="font-serif text-sm font-semibold text-[#1A1612] group-hover:text-[#5A2E1F] transition-colors">
+                      <h4 className="font-serif text-sm font-semibold text-[#2B1A14] group-hover:text-[#5A2E1F] transition-colors">
                         {item.name}
                       </h4>
-                      <div className="flex items-center gap-2 text-[11px] text-[#6B5744]">
-                        <span className="text-[#C59B27] font-medium">{item.category}</span>
+                      <div className="flex items-center gap-2 text-[11px] text-[#78665C]">
+                        <span className="text-[#C9823A] font-semibold">{item.category}</span>
                         <span>•</span>
                         <div className="flex items-center gap-0.5">
-                          <Star className="w-3 h-3 fill-[#C59B27] text-[#C59B27]" />
+                          <Star className="w-3 h-3 fill-[#C9823A] text-[#C9823A]" />
                           <span>{item.rating}</span>
                         </div>
                       </div>
@@ -118,7 +118,7 @@ export default function SearchModal({ isOpen, onClose, onAddToCart, onViewDetail
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <span className="font-serif text-sm font-bold text-[#1A1612]">
+                    <span className="font-serif text-sm font-bold text-[#2B1A14]">
                       ₹ {item.price}
                     </span>
                     <button
@@ -128,7 +128,7 @@ export default function SearchModal({ isOpen, onClose, onAddToCart, onViewDetail
                         onAddToCart(item);
                         onClose();
                       }}
-                      className="p-2 rounded-full bg-[#5A2E1F] hover:bg-[#3E1F16] text-white transition-all shadow-xs"
+                      className="p-2 rounded-full bg-[#5A2E1F] hover:bg-[#3E1F16] text-[#FFF8EE] transition-all shadow-xs cursor-pointer active:scale-95"
                       title="Add to Cart"
                     >
                       <ShoppingBag className="w-3.5 h-3.5" />

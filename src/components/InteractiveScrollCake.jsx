@@ -139,10 +139,10 @@ export default function InteractiveScrollCake({ onAddToCart }) {
   return (
     <section 
       ref={triggerRef} 
-      className="relative h-screen w-full bg-[#FAF8F5] overflow-hidden flex flex-col justify-between border-y border-[#E6DFD5] z-30 select-none"
+      className="relative h-screen w-full bg-[#FFF8EE] overflow-hidden flex flex-col justify-between border-y border-[#E9D8C5] z-30 select-none"
     >
       {/* Dynamic Ambient Spotlight Halo */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#D6A84F]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#C9823A]/10 rounded-full blur-[140px] pointer-events-none" />
 
       {/* Top Editorial Header & Stage Indicator */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-8 relative z-20">
@@ -150,29 +150,29 @@ export default function InteractiveScrollCake({ onAddToCart }) {
           
           <div className="text-center md:text-left">
             <div className="flex items-center gap-2 justify-center md:justify-start">
-              <span className="w-2 h-2 rounded-full bg-[#C59B27] animate-pulse" />
-              <span className="text-[10px] font-semibold text-[#C59B27] uppercase tracking-[0.3em]">
+              <span className="w-2 h-2 rounded-full bg-[#C9823A] animate-pulse" />
+              <span className="text-[10px] font-semibold text-[#C9823A] uppercase tracking-[0.3em]">
                 ARTISANAL INTERACTIVE ASSEMBLY
               </span>
             </div>
-            <h2 className="font-serif text-2xl sm:text-4xl font-normal text-[#1A1612] mt-1">
-              Interactive <span className="italic text-[#C59B27]">Cake Assembly</span>
+            <h2 className="font-serif text-2xl sm:text-4xl font-normal text-[#2B1A14] mt-1">
+              Interactive <span className="italic text-[#C9823A]">Cake Assembly</span>
             </h2>
           </div>
 
           {/* Pro Max Stage Progress Controls */}
-          <div className="flex items-center gap-4 bg-white/90 backdrop-blur-xl px-5 py-2.5 rounded-full border border-[#E6DFD5] shadow-sm">
+          <div className="flex items-center gap-4 bg-white/95 backdrop-blur-xl px-5 py-2.5 rounded-full border border-[#E9D8C5] shadow-xs">
             <div className="flex items-center gap-2">
               {[1, 2, 3, 4].map((step) => (
                 <div
                   key={step}
                   className={`h-1.5 rounded-full transition-all duration-500 ${
-                    activeStage >= step ? 'w-6 bg-[#C59B27]' : 'w-2 bg-[#E6DFD5]'
+                    activeStage >= step ? 'w-6 bg-[#C9823A]' : 'w-2 bg-[#E9D8C5]'
                   }`}
                 />
               ))}
             </div>
-            <span className="text-xs font-mono font-medium text-[#1A1612] tracking-widest pl-2 border-l border-[#E6DFD5]">
+            <span className="text-xs font-mono font-medium text-[#2B1A14] tracking-widest pl-2 border-l border-[#E9D8C5]">
               STAGE 0{activeStage} / 04
             </span>
           </div>
@@ -188,27 +188,27 @@ export default function InteractiveScrollCake({ onAddToCart }) {
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3 }}
-          className="hidden lg:flex flex-col gap-3 absolute left-12 top-1/2 -translate-y-1/2 z-30 w-56 p-4 rounded-2xl bg-white/90 backdrop-blur-xl border border-[#E6DFD5] shadow-lg"
+          className="hidden lg:flex flex-col gap-3 absolute left-12 top-1/2 -translate-y-1/2 z-30 w-56 p-4 rounded-2xl bg-white/95 backdrop-blur-xl border border-[#E9D8C5] shadow-md"
         >
-          <div className="flex items-center gap-2.5 text-[#C59B27]">
+          <div className="flex items-center gap-2.5 text-[#C9823A]">
             <Award className="w-4 h-4" />
             <span className="text-[10px] font-semibold tracking-widest uppercase">GRAND CRU SPEC</span>
           </div>
           <div className="space-y-2 pt-1">
             <div className="flex justify-between text-xs">
-              <span className="text-[#6B5744]">Cocoa Mass</span>
-              <span className="text-[#1A1612] font-mono font-semibold">70% Valrhona</span>
+              <span className="text-[#78665C]">Cocoa Mass</span>
+              <span className="text-[#2B1A14] font-mono font-semibold">70% Valrhona</span>
             </div>
-            <div className="w-full h-1 bg-[#E6DFD5] rounded-full overflow-hidden">
-              <div className="w-[70%] h-full bg-[#C59B27]" />
+            <div className="w-full h-1 bg-[#E9D8C5] rounded-full overflow-hidden">
+              <div className="w-[70%] h-full bg-[#C9823A]" />
             </div>
             <div className="flex justify-between text-xs pt-1">
-              <span className="text-[#6B5744]">Fermentation</span>
-              <span className="text-[#1A1612] font-mono font-semibold">48 Hours</span>
+              <span className="text-[#78665C]">Fermentation</span>
+              <span className="text-[#2B1A14] font-mono font-semibold">48 Hours</span>
             </div>
             <div className="flex justify-between text-xs">
-              <span className="text-[#6B5744]">Temperature</span>
-              <span className="text-[#1A1612] font-mono font-semibold">18°C Controlled</span>
+              <span className="text-[#78665C]">Temperature</span>
+              <span className="text-[#2B1A14] font-mono font-semibold">18°C Controlled</span>
             </div>
           </div>
         </motion.div>
@@ -235,8 +235,8 @@ export default function InteractiveScrollCake({ onAddToCart }) {
               }}
             >
               <span className="relative flex h-5 w-5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C59B27] opacity-75" />
-                <span className="relative inline-flex rounded-full h-5 w-5 bg-[#181310] border-2 border-[#D6A84F] items-center justify-center text-[9px] font-bold text-[#D6A84F]">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C9823A] opacity-75" />
+                <span className="relative inline-flex rounded-full h-5 w-5 bg-[#5A2E1F] border-2 border-[#C9823A] items-center justify-center text-[9px] font-bold text-[#FFF8EE]">
                   +
                 </span>
               </span>
@@ -248,10 +248,10 @@ export default function InteractiveScrollCake({ onAddToCart }) {
                     initial={{ opacity: 0, scale: 0.9, y: 10 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.9, y: 10 }}
-                    className="absolute bottom-8 left-1/2 -translate-x-1/2 w-52 p-3 rounded-xl bg-[#181310] text-[#F5EBDD] border border-[#D6A84F] shadow-2xl text-left pointer-events-auto z-50 backdrop-blur-2xl"
+                    className="absolute bottom-8 left-1/2 -translate-x-1/2 w-52 p-3 rounded-xl bg-[#2B1A14] text-[#FFF8EE] border border-[#C9823A] shadow-2xl text-left pointer-events-auto z-50 backdrop-blur-2xl"
                   >
-                    <h4 className="text-xs font-serif font-semibold text-[#F5EBDD]">{spot.label}</h4>
-                    <p className="text-[10px] text-[#B9AA98] font-light mt-1 leading-relaxed">{spot.info}</p>
+                    <h4 className="text-xs font-serif font-semibold text-[#FFF8EE]">{spot.label}</h4>
+                    <p className="text-[10px] text-[#E9D8C5] font-light mt-1 leading-relaxed">{spot.info}</p>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -285,28 +285,28 @@ export default function InteractiveScrollCake({ onAddToCart }) {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3 }}
-          className="hidden lg:flex flex-col gap-3 absolute right-12 top-1/2 -translate-y-1/2 z-30 w-56 p-4 rounded-2xl bg-white/90 backdrop-blur-xl border border-[#E6DFD5] shadow-lg"
+          className="hidden lg:flex flex-col gap-3 absolute right-12 top-1/2 -translate-y-1/2 z-30 w-56 p-4 rounded-2xl bg-white/95 backdrop-blur-xl border border-[#E9D8C5] shadow-md"
         >
-          <div className="flex items-center gap-2.5 text-[#C59B27]">
+          <div className="flex items-center gap-2.5 text-[#C9823A]">
             <Sparkles className="w-4 h-4" />
             <span className="text-[10px] font-semibold tracking-widest uppercase">GALA COMPOSITION</span>
           </div>
-          <div className="space-y-2 text-xs text-[#6B5744] font-light">
+          <div className="space-y-2 text-xs text-[#78665C] font-light">
             <div className="flex items-center justify-between">
               <span>Top Cavity</span>
-              <span className="text-[#1A1612] font-semibold">Wild Cherries</span>
+              <span className="text-[#2B1A14] font-semibold">Wild Cherries</span>
             </div>
             <div className="flex items-center justify-between">
               <span>Left Cavity</span>
-              <span className="text-[#1A1612] font-semibold">CA Almonds</span>
+              <span className="text-[#2B1A14] font-semibold">CA Almonds</span>
             </div>
             <div className="flex items-center justify-between">
               <span>Right Cavity</span>
-              <span className="text-[#1A1612] font-semibold">Bronte Pistachio</span>
+              <span className="text-[#2B1A14] font-semibold">Bronte Pistachio</span>
             </div>
             <div className="flex items-center justify-between">
               <span>Center Core</span>
-              <span className="text-[#1A1612] font-semibold">Golden Walnuts</span>
+              <span className="text-[#2B1A14] font-semibold">Golden Walnuts</span>
             </div>
           </div>
         </motion.div>
@@ -319,41 +319,41 @@ export default function InteractiveScrollCake({ onAddToCart }) {
           
           {/* STAGE 01 */}
           <div ref={textPhase1Ref} className="absolute inset-0 flex flex-col items-center justify-center space-y-1">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#C59B27]">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#C9823A]">
               STAGE 01 — ARTISANAL BASE
             </span>
-            <h3 className="font-serif text-xl sm:text-3xl font-normal text-[#1A1612]">
+            <h3 className="font-serif text-xl sm:text-3xl font-normal text-[#2B1A14]">
               Grand Cru 70% Valrhona Dark Chocolate Base
             </h3>
           </div>
 
           {/* STAGE 02 */}
           <div ref={textPhase2Ref} className="absolute inset-0 flex flex-col items-center justify-center space-y-1">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#C59B27]">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#C9823A]">
               STAGE 02 — TOP CAVITY INJECTION
             </span>
-            <h3 className="font-serif text-xl sm:text-3xl font-normal text-[#1A1612]">
+            <h3 className="font-serif text-xl sm:text-3xl font-normal text-[#2B1A14]">
               Organic Wild Cherries Placed In Sculpted Top Hole
             </h3>
           </div>
 
           {/* STAGE 03 */}
           <div ref={textPhase3Ref} className="absolute inset-0 flex flex-col items-center justify-center space-y-1">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#C59B27]">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#C9823A]">
               STAGE 03 — LUXURY NUT EMBEDDING
             </span>
-            <h3 className="font-serif text-xl sm:text-3xl font-normal text-[#1A1612]">
+            <h3 className="font-serif text-xl sm:text-3xl font-normal text-[#2B1A14]">
               Almonds, Pistachios & Walnuts Nestled in Cavities
             </h3>
           </div>
 
           {/* STAGE 04 */}
           <div ref={textPhase4Ref} className="absolute inset-0 flex flex-col items-center justify-center space-y-3">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#556B2F]">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#5E8060]">
               STAGE 04 — MASTERPIECE COMPLETE
             </span>
-            <h3 className="font-serif text-xl sm:text-3xl font-normal text-[#1A1612]">
-              Grand Cru Artisanal Masterpiece • <span className="italic text-[#C59B27]">₹1,800</span>
+            <h3 className="font-serif text-xl sm:text-3xl font-normal text-[#2B1A14]">
+              Grand Cru Artisanal Masterpiece • <span className="italic text-[#C9823A]">₹1,800</span>
             </h3>
             <button
               onClick={handleOrderSpecial}

@@ -1,8 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, Search, User, Menu as MenuIcon, X, ArrowRight, ChevronRight } from 'lucide-react';
+import { 
+  ShoppingBag, 
+  Search, 
+  User, 
+  Menu as MenuIcon, 
+  X, 
+  ArrowRight, 
+  ChevronRight,
+  Sparkles,
+  Phone,
+  ArrowUpRight
+} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { playSound } from '../utils/sound';
 import vorentisLogo from '../assets/vorentis_logo.png';
+
+import serviceWeddingHero from '../assets/service_wedding_hero.jpg';
+import serviceDessertHero from '../assets/service_dessert_hero.jpg';
+import serviceCorporateHero from '../assets/service_corporate_hero.jpg';
+import serviceWorkshopHero from '../assets/service_workshop_hero.jpg';
+import serviceTastingHero from '../assets/service_tasting_hero.jpg';
 
 export default function Navbar({ 
   currentPage = 'home', 
@@ -17,6 +34,7 @@ export default function Navbar({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [hoveredServiceId, setHoveredServiceId] = useState('wedding-cakes');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,13 +45,54 @@ export default function Navbar({
   }, []);
 
   const serviceItems = [
-    { id: 'wedding-cakes', name: 'Wedding & Celebration Cakes', desc: 'Custom architectural multi-tier showpieces' },
-    { id: 'dessert-catering', name: 'Event Pastry Catering', desc: 'Opulent dessert tables & French viennoiserie' },
-    { id: 'corporate-gifting', name: 'Corporate Luxury Gifting', desc: 'Branded macaron boxes & executive hampers' },
-    { id: 'baking-workshops', name: 'Masterclasses & Workshops', desc: 'Hands-on croissant & sourdough ateliers' },
-    { id: 'chef-tasting', name: 'Chef’s Tasting Table', desc: 'Exclusive 5-course private degustation' },
+    { 
+      id: 'wedding-cakes', 
+      name: 'Wedding & Celebration Cakes', 
+      desc: 'Architectural multi-tier showpieces & florals',
+      tag: 'Bespoke',
+      image: serviceWeddingHero,
+      previewTitle: 'Grand Wedding & Couture Tiers',
+      previewDesc: '5-tier architectural sculptures with handcrafted sugar botanicals and 24K gold drips.'
+    },
+    { 
+      id: 'dessert-catering', 
+      name: 'Event Pastry Catering', 
+      desc: 'Opulent dessert tables & French viennoiserie',
+      tag: 'Catering',
+      image: serviceDessertHero,
+      previewTitle: 'Opulent Dessert Tables',
+      previewDesc: 'Signature Parisian patisserie spreads, tartlets, and viennoiserie curated for luxury events.'
+    },
+    { 
+      id: 'corporate-gifting', 
+      name: 'Corporate Luxury Gifting', 
+      desc: 'Custom branded macaron boxes & hampers',
+      tag: 'Gifting',
+      image: serviceCorporateHero,
+      previewTitle: 'Luxury Branded Gifting',
+      previewDesc: 'Handcrafted macaron gift suites and executive gourmet hampers embossed with bespoke ribbons.'
+    },
+    { 
+      id: 'baking-workshops', 
+      name: 'Masterclasses & Workshops', 
+      desc: 'Hands-on croissant & sourdough ateliers',
+      tag: 'Academy',
+      image: serviceWorkshopHero,
+      previewTitle: 'Pastry & Bread Masterclasses',
+      previewDesc: 'Master the 27 layers of French lamination and sourdough fermentation in private atelier sessions.'
+    },
+    { 
+      id: 'chef-tasting', 
+      name: 'Chef’s Tasting Table', 
+      desc: 'Exclusive 5-course private degustation',
+      tag: 'VIP Table',
+      image: serviceTastingHero,
+      previewTitle: 'Private 5-Course Degustation',
+      previewDesc: 'An intimate tasting journey paired with rare teas and single-origin chocolates with our Executive Chef.'
+    },
   ];
 
+  const activePreview = serviceItems.find(s => s.id === hoveredServiceId) || serviceItems[0];
   const isServiceActive = serviceItems.some(s => s.id === currentPage) || currentPage === 'services';
 
   return (
@@ -132,45 +191,142 @@ export default function Navbar({
             <AnimatePresence>
               {servicesDropdownOpen && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                  initial={{ opacity: 0, y: 12, scale: 0.98 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute top-full -left-6 mt-2 w-80 sm:w-96 rounded-3xl bg-white/98 backdrop-blur-xl p-3 shadow-2xl border border-[#E9D8C5] z-50 overflow-hidden"
+                  exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                  transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute top-full -left-28 mt-2.5 w-[580px] lg:w-[640px] rounded-3xl bg-white/98 backdrop-blur-2xl p-4 shadow-[0_25px_60px_rgba(43,26,20,0.15)] border border-[#E9D8C5] z-50 overflow-hidden text-left"
                 >
-                  <div className="px-3 py-2 border-b border-[#E9D8C5] mb-1 flex items-center justify-between">
-                    <span className="text-[10px] font-mono uppercase font-bold tracking-widest text-[#C9823A]">
-                      ATELIER SERVICES
+                  {/* Top Header */}
+                  <div className="px-3 pb-3 border-b border-[#E9D8C5] mb-3 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Sparkles className="w-3.5 h-3.5 text-[#C9823A]" />
+                      <span className="text-[10px] font-mono uppercase font-bold tracking-widest text-[#C9823A]">
+                        HAUTE PÂTISSERIE SERVICES
+                      </span>
+                    </div>
+                    <span className="text-[10.5px] text-[#78665C] font-light">
+                      Bespoke Culinary Craft
                     </span>
-                    <span className="text-[10px] text-[#78665C]">Bespoke Offerings</span>
                   </div>
 
-                  <div className="space-y-1">
-                    {serviceItems.map((item) => (
-                      <button
-                        key={item.id}
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          playSound('click');
-                          onNavigate(item.id);
-                        }}
-                        className={`w-full text-left p-2.5 rounded-2xl transition-all flex items-center justify-between group cursor-pointer ${
-                          currentPage === item.id 
-                            ? 'bg-[#F4E5D2] text-[#2B1A14]' 
-                            : 'hover:bg-[#FFF8EE] text-[#78665C]'
-                        }`}
-                      >
-                        <div className="space-y-0.5 pr-2">
-                          <span className="font-serif text-sm font-semibold text-[#2B1A14] group-hover:text-[#5A2E1F] transition-colors block">
-                            {item.name}
-                          </span>
-                          <span className="text-[11px] text-[#78665C] font-light block leading-tight">
-                            {item.desc}
-                          </span>
-                        </div>
-                      </button>
-                    ))}
+                  {/* 2-Column Content Grid */}
+                  <div className="grid grid-cols-12 gap-3.5 items-stretch">
+                    
+                    {/* Left: 5 Service Links (Clean Typography without icons) */}
+                    <div className="col-span-7 space-y-1.5">
+                      {serviceItems.map((item) => {
+                        const isSelected = hoveredServiceId === item.id || (currentPage === item.id && !hoveredServiceId);
+                        return (
+                          <button
+                            key={item.id}
+                            onMouseEnter={() => setHoveredServiceId(item.id)}
+                            onClick={() => {
+                              setServicesDropdownOpen(false);
+                              playSound('click');
+                              onNavigate(item.id);
+                            }}
+                            className={`w-full text-left p-2.5 px-3 rounded-2xl transition-all duration-200 flex items-center justify-between group cursor-pointer border ${
+                              isSelected
+                                ? 'bg-[#F4E5D2] border-[#5A2E1F]/25 text-[#2B1A14] shadow-2xs' 
+                                : 'bg-transparent border-transparent hover:bg-[#FFF8EE] hover:border-[#E9D8C5]/70 text-[#78665C]'
+                            }`}
+                          >
+                            <div className="space-y-0.5 pr-2 min-w-0">
+                              <span className={`font-serif text-[13px] font-bold transition-colors block truncate ${
+                                isSelected ? 'text-[#5A2E1F]' : 'text-[#2B1A14] group-hover:text-[#5A2E1F]'
+                              }`}>
+                                {item.name}
+                              </span>
+                              <span className="text-[10.5px] text-[#78665C] font-light block leading-snug truncate">
+                                {item.desc}
+                              </span>
+                            </div>
+
+                            <span className="text-[8.5px] font-mono uppercase tracking-wider text-[#C9823A] bg-white px-2 py-0.5 rounded-md border border-[#E9D8C5] shrink-0 font-semibold shadow-2xs">
+                              {item.tag}
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Right: Dynamic Live Preview Card */}
+                    <div className="col-span-5 rounded-2xl bg-gradient-to-br from-[#2B1A14] to-[#3E1F16] text-[#FFF8EE] p-3.5 flex flex-col justify-between border border-[#5A2E1F] shadow-inner relative overflow-hidden">
+                      
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={`preview-${activePreview.id}`}
+                          initial={{ opacity: 0, scale: 0.95 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.95 }}
+                          transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                          className="flex flex-col justify-between h-full space-y-2.5"
+                        >
+                          {/* Image Thumbnail Banner */}
+                          <div className="w-full h-28 rounded-xl overflow-hidden relative bg-black/40 shadow-md shrink-0">
+                            <img 
+                              src={activePreview.image} 
+                              alt={activePreview.name} 
+                              className="w-full h-full object-cover" 
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                            <span className="absolute bottom-1.5 left-2 text-[8.5px] font-mono uppercase tracking-wider text-[#FFF8EE] font-semibold flex items-center gap-1 bg-black/50 px-2 py-0.5 rounded-full backdrop-blur-xs border border-white/20">
+                              <Sparkles className="w-2.5 h-2.5 text-[#C9823A]" />
+                              {activePreview.tag} Feature
+                            </span>
+                          </div>
+
+                          <div className="space-y-1 text-left">
+                            <h4 className="font-serif text-xs font-bold text-white leading-tight">
+                              {activePreview.previewTitle}
+                            </h4>
+                            <p className="text-[10px] text-[#E9D8C5] font-light leading-snug line-clamp-2">
+                              {activePreview.previewDesc}
+                            </p>
+                          </div>
+
+                          <button
+                            onClick={() => {
+                              setServicesDropdownOpen(false);
+                              playSound('click');
+                              onNavigate(activePreview.id);
+                            }}
+                            className="w-full py-2 rounded-xl bg-[#C9823A] hover:bg-[#b07030] text-[#2B1A14] hover:text-white font-semibold text-[10px] uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-md active:scale-95 shrink-0"
+                          >
+                            <span>Explore Offering</span>
+                            <ArrowRight className="w-3 h-3" />
+                          </button>
+                        </motion.div>
+                      </AnimatePresence>
+
+                    </div>
+
                   </div>
+
+                  {/* Bottom Footer Bar */}
+                  <div className="mt-3 pt-2.5 border-t border-[#E9D8C5] px-2 flex items-center justify-between text-[10.5px]">
+                    <div className="flex items-center gap-1.5 text-[#78665C]">
+                      <Phone className="w-3 h-3 text-[#C9823A]" />
+                      <span>Concierge:</span>
+                      <a href="tel:+916239796319" className="font-semibold text-[#2B1A14] hover:text-[#5A2E1F] hover:underline font-mono">
+                        +91 62397 96319
+                      </a>
+                    </div>
+
+                    <button
+                      onClick={() => {
+                        setServicesDropdownOpen(false);
+                        playSound('click');
+                        onNavigate('wedding-cakes');
+                      }}
+                      className="text-[#5A2E1F] hover:text-[#C9823A] font-semibold transition-colors flex items-center gap-1 cursor-pointer"
+                    >
+                      <span>Explore All Services</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </button>
+                  </div>
+
                 </motion.div>
               )}
             </AnimatePresence>
@@ -318,7 +474,7 @@ export default function Navbar({
               </button>
 
               {mobileServicesOpen && (
-                <div className="pl-4 py-2 space-y-2">
+                <div className="pl-1 py-2 space-y-1.5">
                   {serviceItems.map((item) => (
                     <button
                       key={item.id}
@@ -327,11 +483,16 @@ export default function Navbar({
                         playSound('click');
                         onNavigate(item.id);
                       }}
-                      className={`block text-left w-full text-xs py-1 transition-colors ${
-                        currentPage === item.id ? 'text-[#5A2E1F] font-bold' : 'text-[#78665C]'
+                      className={`w-full flex items-center justify-between p-2.5 rounded-xl text-left transition-colors ${
+                        currentPage === item.id 
+                          ? 'bg-[#F4E5D2] text-[#5A2E1F] font-bold' 
+                          : 'text-[#78665C] hover:bg-[#FFF8EE]'
                       }`}
                     >
-                      {item.name}
+                      <span className="text-xs truncate font-medium text-[#2B1A14]">{item.name}</span>
+                      <span className="text-[8.5px] font-mono uppercase tracking-wider text-[#C9823A] bg-white px-2 py-0.5 rounded border border-[#E9D8C5] shrink-0 font-semibold">
+                        {item.tag}
+                      </span>
                     </button>
                   ))}
                 </div>
@@ -358,6 +519,13 @@ export default function Navbar({
             </button>
 
             <div className="pt-4 border-t border-[#E9D8C5] space-y-3">
+              <a
+                href="tel:+916239796319"
+                className="w-full py-2.5 rounded-full bg-[#FFF8EE] text-[#5A2E1F] border border-[#E9D8C5] font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer hover:bg-[#F4E5D2]"
+              >
+                <span>Call Concierge: +91 62397 96319</span>
+              </a>
+
               <button
                 onClick={() => { setMobileMenuOpen(false); onOrderClick(); }}
                 className="w-full py-3 rounded-full bg-[#5A2E1F] text-[#FFF8EE] font-bold text-xs uppercase tracking-widest flex items-center justify-center cursor-pointer hover:bg-[#3E1F16]"

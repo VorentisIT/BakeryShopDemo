@@ -17,8 +17,9 @@ import {
   Award,
   Layers
 } from 'lucide-react';
-import { playSound } from '../utils/sound';
 import { SERVICES_DATA } from '../data/servicesData';
+import { playSound } from '../utils/sound';
+import CustomDropdown from '../components/CustomDropdown';
 
 export default function ServicesPage({ 
   activeServiceId = 'wedding-cakes', 
@@ -98,16 +99,11 @@ export default function ServicesPage({
         <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
           <button
             onClick={() => { playSound('click'); onNavigateHome(); }}
-            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#78665C] hover:text-[#2B1A14] transition-colors cursor-pointer bg-white px-4 py-2 rounded-full border border-[#E9D8C5] shadow-xs active:scale-95"
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#78665C] hover:text-[#5A2E1F] transition-colors cursor-pointer bg-white px-4 py-2 rounded-full border border-[#E9D8C5] shadow-xs active:scale-95"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Home</span>
           </button>
-
-          <span className="text-xs text-[#C9823A] font-mono uppercase tracking-widest font-semibold flex items-center gap-2">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Atelier Services / {currentService.shortTitle}</span>
-          </span>
         </div>
 
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-5">
@@ -272,23 +268,23 @@ export default function ServicesPage({
         </div>
 
         {/* 3. ATELIER VISUAL LOOKBOOK & AESTHETIC GALLERY (STYLISH MULTI-IMAGE DESIGN) */}
-        <div className="pt-10 border-t border-[#E6DFD5] space-y-8">
+        <div className="pt-10 border-t border-[#E9D8C5] space-y-8">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#C59B27] block">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#C9823A] block">
                 CURATED VISUAL LOOKBOOK
               </span>
-              <h3 className="font-serif text-2xl sm:text-4xl font-normal text-[#1A1612] mt-1">
+              <h3 className="font-serif text-2xl sm:text-4xl font-normal text-[#2B1A14] mt-1">
                 Artisanal Staging & Textures
               </h3>
-              <p className="text-xs sm:text-sm text-[#6B5744] font-light mt-1 max-w-lg">
+              <p className="text-xs sm:text-sm text-[#78665C] font-light mt-1 max-w-lg">
                 Click any composition to open high-definition culinary details, flora arrangements, and plating textures.
               </p>
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="text-xs text-[#8C6D23] font-mono">
+              <span className="text-xs text-[#C9823A] font-mono font-semibold">
                 {activeGalleryIndex + 1} of {galleryList.length} Compositions
               </span>
             </div>
@@ -299,7 +295,7 @@ export default function ServicesPage({
             
             {/* Main Interactive Stage (7 Cols) */}
             <div className="lg:col-span-7">
-              <div className="relative rounded-3xl overflow-hidden aspect-[16/10] bg-[#181310] shadow-xl border border-[#E6DFD5] group">
+              <div className="relative rounded-3xl overflow-hidden aspect-[16/10] bg-[#2B1A14] shadow-xl border border-[#E9D8C5] group">
                 <motion.img
                   key={activeImageObj.id}
                   src={activeImageObj.image}
@@ -315,7 +311,7 @@ export default function ServicesPage({
 
                 {/* Top Floating Badge */}
                 <div className="absolute top-4 left-4">
-                  <span className="px-3.5 py-1 rounded-full bg-[#181310]/85 backdrop-blur-md text-[#D6A84F] text-[10px] font-mono uppercase font-bold tracking-widest border border-[#D6A84F]/30 shadow-md">
+                  <span className="px-3.5 py-1 rounded-full bg-[#2B1A14]/85 backdrop-blur-md text-[#C9823A] text-[10px] font-mono uppercase font-bold tracking-widest border border-[#C9823A]/30 shadow-md">
                     {activeImageObj.tag}
                   </span>
                 </div>
@@ -323,7 +319,7 @@ export default function ServicesPage({
                 {/* Expand Button */}
                 <button
                   onClick={() => handleOpenLightbox(activeImageObj)}
-                  className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/80 hover:bg-white text-[#181310] backdrop-blur-md flex items-center justify-center transition-all hover:scale-110 cursor-pointer shadow-md"
+                  className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 hover:bg-white text-[#2B1A14] backdrop-blur-md flex items-center justify-center transition-all hover:scale-110 cursor-pointer shadow-md"
                   title="Expand Full View"
                 >
                   <Maximize2 className="w-4 h-4" />
@@ -335,7 +331,7 @@ export default function ServicesPage({
                     <h4 className="font-serif text-lg sm:text-xl font-bold">
                       {activeImageObj.title}
                     </h4>
-                    <p className="text-xs text-[#E6DFD5] font-light mt-0.5">
+                    <p className="text-xs text-[#E9D8C5] font-light mt-0.5">
                       {activeImageObj.subtitle}
                     </p>
                   </div>
@@ -343,7 +339,7 @@ export default function ServicesPage({
                     onClick={() => handleOpenLightbox(activeImageObj)}
                     className="px-3.5 py-1.5 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md text-white text-[11px] font-medium inline-flex items-center gap-1.5 transition-colors cursor-pointer shrink-0"
                   >
-                    <Eye className="w-3.5 h-3.5 text-[#D6A84F]" />
+                    <Eye className="w-3.5 h-3.5 text-[#C9823A]" />
                     <span>Zoom</span>
                   </button>
                 </div>
@@ -363,8 +359,8 @@ export default function ServicesPage({
                     }}
                     className={`relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer transition-all duration-300 border-2 group ${
                       isActive 
-                        ? 'border-[#C59B27] ring-4 ring-[#C59B27]/20 scale-[1.02] shadow-lg' 
-                        : 'border-[#E6DFD5] hover:border-[#181310] opacity-85 hover:opacity-100'
+                        ? 'border-[#C9823A] ring-4 ring-[#C9823A]/20 scale-[1.02] shadow-lg' 
+                        : 'border-[#E9D8C5] hover:border-[#5A2E1F] opacity-85 hover:opacity-100'
                     }`}
                   >
                     <img
@@ -375,7 +371,7 @@ export default function ServicesPage({
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
                     <div className="absolute top-2 left-2">
-                      <span className="px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-xs text-[9px] font-mono text-[#D6A84F]">
+                      <span className="px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-xs text-[9px] font-mono text-[#C9823A]">
                         {item.tag}
                       </span>
                     </div>
@@ -396,12 +392,12 @@ export default function ServicesPage({
 
         {/* 4. THE 3-STEP ATELIER CRAFT PROCESS */}
         {currentService.process && (
-          <div className="pt-10 border-t border-[#E6DFD5]">
+          <div className="pt-10 border-t border-[#E9D8C5]">
             <div className="text-center max-w-xl mx-auto mb-10">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#C59B27] block">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#C9823A] block">
                 THE ATELIER BLUEPRINT
               </span>
-              <h3 className="font-serif text-2xl sm:text-4xl font-normal text-[#1A1612] mt-1">
+              <h3 className="font-serif text-2xl sm:text-4xl font-normal text-[#2B1A14] mt-1">
                 How We Bring Your Vision to Life
               </h3>
             </div>
@@ -410,27 +406,27 @@ export default function ServicesPage({
               {currentService.process.map((step, idx) => (
                 <div 
                   key={idx}
-                  className="rounded-3xl bg-white p-7 border border-[#E6DFD5] shadow-xs relative overflow-hidden flex flex-col justify-between space-y-4"
+                  className="rounded-3xl bg-white p-7 border border-[#E9D8C5] shadow-xs relative overflow-hidden flex flex-col justify-between space-y-4 hover:border-[#5A2E1F]/50 transition-all"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-serif text-3xl font-bold text-[#D6A84F]">
+                    <span className="font-serif text-3xl font-bold text-[#C9823A]">
                       {step.step}
                     </span>
-                    <span className="w-8 h-8 rounded-full bg-[#FAF5EE] text-[#181310] flex items-center justify-center text-xs font-mono font-bold">
+                    <span className="w-8 h-8 rounded-full bg-[#F4E5D2] text-[#5A2E1F] flex items-center justify-center text-xs font-mono font-bold">
                       0{idx + 1}
                     </span>
                   </div>
 
                   <div>
-                    <h4 className="font-serif text-lg font-bold text-[#1A1612]">
+                    <h4 className="font-serif text-lg font-bold text-[#2B1A14]">
                       {step.title}
                     </h4>
-                    <p className="text-xs text-[#6B5744] font-light mt-2 leading-relaxed">
+                    <p className="text-xs text-[#78665C] font-light mt-2 leading-relaxed">
                       {step.desc}
                     </p>
                   </div>
 
-                  <div className="h-0.5 w-12 bg-[#D6A84F] rounded-full" />
+                  <div className="h-0.5 w-12 bg-[#C9823A] rounded-full" />
                 </div>
               ))}
             </div>
@@ -438,12 +434,12 @@ export default function ServicesPage({
         )}
 
         {/* 5. WHAT IS INCLUDED SECTION */}
-        <div className="pt-10 border-t border-[#E6DFD5]">
+        <div className="pt-10 border-t border-[#E9D8C5]">
           <div className="text-center max-w-xl mx-auto mb-8">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#C59B27] block">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#C9823A] block">
               THE DÉLICE STANDARD
             </span>
-            <h3 className="font-serif text-2xl sm:text-4xl font-normal text-[#1A1612] mt-1">
+            <h3 className="font-serif text-2xl sm:text-4xl font-normal text-[#2B1A14] mt-1">
               Included In Every Experience
             </h3>
           </div>
@@ -456,12 +452,12 @@ export default function ServicesPage({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.08 }}
-                className="p-6 rounded-2xl bg-white border border-[#E6DFD5] shadow-xs flex flex-col justify-between space-y-4"
+                className="p-6 rounded-2xl bg-white border border-[#E9D8C5] shadow-xs flex flex-col justify-between space-y-4"
               >
-                <div className="w-9 h-9 rounded-full bg-[#FAF5EE] text-[#C59B27] flex items-center justify-center">
+                <div className="w-9 h-9 rounded-full bg-[#F4E5D2] text-[#5A2E1F] flex items-center justify-center">
                   <Check className="w-4 h-4 stroke-[2.5]" />
                 </div>
-                <p className="text-xs sm:text-sm text-[#2E241E] font-light leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#2B1A14] font-light leading-relaxed">
                   {feat}
                 </p>
               </motion.div>
@@ -470,12 +466,12 @@ export default function ServicesPage({
         </div>
 
         {/* 6. CURATED PACKAGES TIER SECTION */}
-        <div className="pt-10 border-t border-[#E6DFD5]">
+        <div className="pt-10 border-t border-[#E9D8C5]">
           <div className="text-center max-w-xl mx-auto mb-8">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#C59B27] block">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#C9823A] block">
               CURATED PACKAGES
             </span>
-            <h3 className="font-serif text-2xl sm:text-4xl font-normal text-[#1A1612] mt-1">
+            <h3 className="font-serif text-2xl sm:text-4xl font-normal text-[#2B1A14] mt-1">
               Tailored Options For Your Gathering
             </h3>
           </div>
@@ -486,23 +482,23 @@ export default function ServicesPage({
                 key={pkg.name}
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.25 }}
-                className="rounded-3xl bg-white p-6 sm:p-8 border border-[#E6DFD5] shadow-xs hover:shadow-xl hover:border-[#C59B27]/50 flex flex-col justify-between transition-all group"
+                className="rounded-3xl bg-white p-6 sm:p-8 border border-[#E9D8C5] shadow-xs hover:shadow-xl hover:border-[#5A2E1F]/50 flex flex-col justify-between transition-all group"
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="font-serif text-xl font-semibold text-[#1A1612] group-hover:text-[#5A2E1F] transition-colors">
+                    <span className="font-serif text-xl font-semibold text-[#2B1A14] group-hover:text-[#5A2E1F] transition-colors">
                       {pkg.name}
                     </span>
-                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#FAF5EE] text-[#8C6D23] font-semibold">
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#F4E5D2] text-[#5A2E1F] font-semibold">
                       {pkg.servings}
                     </span>
                   </div>
 
-                  <div className="font-serif text-2xl font-bold text-[#1A1612] pt-2 pb-4 border-b border-[#F2ECE4]">
+                  <div className="font-serif text-2xl font-bold text-[#2B1A14] pt-2 pb-4 border-b border-[#E9D8C5]">
                     {pkg.price}
                   </div>
 
-                  <ul className="space-y-2.5 py-5 text-xs text-[#6B5744]">
+                  <ul className="space-y-2.5 py-5 text-xs text-[#78665C]">
                     {pkg.highlights.map((h, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <Check className="w-3.5 h-3.5 text-[#C9823A] shrink-0 mt-0.5" />
@@ -514,7 +510,7 @@ export default function ServicesPage({
 
                 <button
                   onClick={() => handleOpenInquiry(pkg)}
-                  className="w-full py-3.5 rounded-full bg-[#181310] text-[#FAF8F5] hover:bg-[#5A2E1F] font-medium text-xs uppercase tracking-wider transition-all shadow-sm flex items-center justify-center cursor-pointer active:scale-95 mt-2"
+                  className="w-full py-3.5 rounded-full bg-[#5A2E1F] text-[#FFF8EE] hover:bg-[#3E1F16] font-medium text-xs uppercase tracking-wider transition-all shadow-xs flex items-center justify-center cursor-pointer active:scale-95 mt-2"
                 >
                   <span>Select & Inquire</span>
                 </button>
@@ -524,18 +520,18 @@ export default function ServicesPage({
         </div>
 
         {/* 7. FAQS */}
-        <div className="pt-10 border-t border-[#E6DFD5] max-w-3xl mx-auto">
-          <h4 className="font-serif text-xl sm:text-2xl font-normal text-center text-[#1A1612] mb-6">
+        <div className="pt-10 border-t border-[#E9D8C5] max-w-3xl mx-auto">
+          <h4 className="font-serif text-xl sm:text-2xl font-normal text-center text-[#2B1A14] mb-6">
             Frequently Asked Questions
           </h4>
           <div className="space-y-3">
             {currentService.faqs.map((faq, idx) => (
-              <div key={idx} className="p-5 rounded-2xl bg-white border border-[#E6DFD5] shadow-xs space-y-1.5">
-                <div className="flex items-center gap-2 text-xs sm:text-sm font-serif font-bold text-[#1A1612]">
-                  <HelpCircle className="w-4 h-4 text-[#C59B27]" />
+              <div key={idx} className="p-5 rounded-2xl bg-white border border-[#E9D8C5] shadow-xs space-y-1.5">
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-serif font-bold text-[#2B1A14]">
+                  <HelpCircle className="w-4 h-4 text-[#C9823A]" />
                   <span>{faq.q}</span>
                 </div>
-                <p className="text-xs text-[#6B5744] font-light leading-relaxed pl-6">
+                <p className="text-xs text-[#78665C] font-light leading-relaxed pl-6">
                   {faq.a}
                 </p>
               </div>
@@ -544,20 +540,20 @@ export default function ServicesPage({
         </div>
 
         {/* 8. BOTTOM CTA BANNER */}
-        <div className="rounded-[2.5rem] bg-[#181310] text-[#FAF8F5] p-8 sm:p-12 text-center space-y-4 shadow-2xl border border-[#2E2620] relative overflow-hidden">
-          <span className="font-script text-3xl sm:text-4xl text-[#D6A84F] block">
+        <div className="rounded-[2.5rem] bg-[#2B1A14] text-[#FFF8EE] p-8 sm:p-12 text-center space-y-4 shadow-2xl border border-[#3E1F16] relative overflow-hidden">
+          <span className="font-script text-3xl sm:text-4xl text-[#C9823A] block">
             Let's Create Something Extraordinary
           </span>
           <h3 className="font-serif text-3xl sm:text-4xl font-normal text-white max-w-xl mx-auto">
             Ready to plan your bespoke celebration?
           </h3>
-          <p className="text-xs sm:text-sm text-[#D5C9BC] font-light max-w-md mx-auto leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#E9D8C5] font-light max-w-md mx-auto leading-relaxed">
             Our atelier pastry concierge is on hand to guide you through flavor profiles, custom sketches, and refrigerated logistics.
           </p>
           <div className="pt-2">
             <button
               onClick={() => handleOpenInquiry()}
-              className="px-9 py-4 rounded-full bg-[#FAF8F5] text-[#181310] hover:bg-[#5A2E1F] hover:text-white transition-all font-medium text-xs tracking-wider inline-flex items-center gap-2.5 cursor-pointer shadow-lg active:scale-95"
+              className="px-9 py-4 rounded-full bg-[#5A2E1F] text-[#FFF8EE] hover:bg-[#3E1F16] border border-[#E9D8C5]/30 transition-all font-medium text-xs tracking-wider inline-flex items-center gap-2.5 cursor-pointer shadow-lg active:scale-95"
             >
               <MessageSquare className="w-4 h-4 text-[#C9823A]" />
               <span>Schedule a Personal Tasting / Inquiry</span>
@@ -634,115 +630,117 @@ export default function ServicesPage({
             >
               <button
                 onClick={() => setIsInquiryOpen(false)}
-                className="w-9 h-9 rounded-full bg-[#FAF5EE] text-[#181310] hover:bg-[#181310] hover:text-white flex items-center justify-center transition-all absolute top-5 right-5 cursor-pointer"
+                className="w-9 h-9 rounded-full bg-[#FFF8EE] text-[#2B1A14] hover:bg-[#5A2E1F] hover:text-white flex items-center justify-center transition-all absolute top-5 right-5 cursor-pointer border border-[#E9D8C5]"
                 title="Close"
               >
                 <X className="w-4 h-4" />
               </button>
 
               <div className="mb-5">
-                <span className="text-[10px] font-mono uppercase font-bold tracking-widest text-[#C59B27] block">
+                <span className="text-[10px] font-mono uppercase font-bold tracking-widest text-[#C9823A] block">
                   ATELIER RESERVATION
                 </span>
-                <h3 className="font-serif text-2xl font-semibold text-[#1A1612]">
+                <h3 className="font-serif text-2xl font-semibold text-[#2B1A14]">
                   {selectedPackage ? `Inquire: ${selectedPackage.name}` : `Inquire: ${currentService.shortTitle}`}
                 </h3>
-                <p className="text-xs text-[#6B5744] font-light mt-1">
+                <p className="text-xs text-[#78665C] font-light mt-1">
                   Share your event parameters and our head patissier will prepare a personalized proposal.
                 </p>
               </div>
 
               {submitted ? (
                 <div className="py-8 text-center space-y-3">
-                  <div className="w-14 h-14 rounded-full bg-[#556B2F] text-white flex items-center justify-center mx-auto shadow-md">
+                  <div className="w-14 h-14 rounded-full bg-[#5E8060] text-white flex items-center justify-center mx-auto shadow-md">
                     <Check className="w-8 h-8 stroke-[2.5]" />
                   </div>
-                  <h4 className="font-serif text-xl font-bold text-[#1A1612]">
+                  <h4 className="font-serif text-xl font-bold text-[#2B1A14]">
                     Inquiry Received!
                   </h4>
-                  <p className="text-xs text-[#6B5744] max-w-xs mx-auto font-light leading-relaxed">
+                  <p className="text-xs text-[#78665C] max-w-xs mx-auto font-light leading-relaxed">
                     Thank you, {formName || 'valued guest'}. Our atelier concierge will contact you within 4 hours with your tasting consultation docket.
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmitInquiry} className="space-y-3.5">
                   <div>
-                    <label className="text-[11px] font-semibold text-[#1A1612] block mb-1">Your Full Name *</label>
+                    <label className="text-[11px] font-semibold text-[#2B1A14] block mb-1">Your Full Name *</label>
                     <input
                       type="text"
                       required
                       value={formName}
                       onChange={(e) => setFormName(e.target.value)}
                       placeholder="e.g. Eleanor Vance"
-                      className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#D5C9BC] focus:outline-none focus:border-[#C59B27]"
+                      className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#E9D8C5] focus:outline-none focus:border-[#C9823A] bg-white text-[#2B1A14]"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="text-[11px] font-semibold text-[#1A1612] block mb-1">Email Address *</label>
+                      <label className="text-[11px] font-semibold text-[#2B1A14] block mb-1">Email Address *</label>
                       <input
                         type="email"
                         required
                         value={formEmail}
                         onChange={(e) => setFormEmail(e.target.value)}
                         placeholder="eleanor@example.com"
-                        className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#D5C9BC] focus:outline-none focus:border-[#C59B27]"
+                        className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#E9D8C5] focus:outline-none focus:border-[#C9823A] bg-white text-[#2B1A14]"
                       />
                     </div>
                     <div>
-                      <label className="text-[11px] font-semibold text-[#1A1612] block mb-1">Phone Number *</label>
+                      <label className="text-[11px] font-semibold text-[#2B1A14] block mb-1">Phone Number *</label>
                       <input
                         type="tel"
                         required
                         value={formPhone}
                         onChange={(e) => setFormPhone(e.target.value)}
-                        placeholder="+91 98765 43210"
-                        className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#D5C9BC] focus:outline-none focus:border-[#C59B27]"
+                        placeholder="+91 62397 96319"
+                        className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#E9D8C5] focus:outline-none focus:border-[#C9823A] bg-white text-[#2B1A14]"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="text-[11px] font-semibold text-[#1A1612] block mb-1">Target Event Date *</label>
+                      <label className="text-[11px] font-semibold text-[#2B1A14] block mb-1">Target Event Date *</label>
                       <input
                         type="date"
                         required
                         value={formDate}
                         onChange={(e) => setFormDate(e.target.value)}
-                        className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#D5C9BC] focus:outline-none focus:border-[#C59B27]"
+                        className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#E9D8C5] focus:outline-none focus:border-[#C9823A] bg-white text-[#2B1A14]"
                       />
                     </div>
                     <div>
-                      <label className="text-[11px] font-semibold text-[#1A1612] block mb-1">Estimated Guests</label>
-                      <select
+                      <label className="text-[11px] font-semibold text-[#2B1A14] block mb-1">Estimated Guests</label>
+                      <CustomDropdown
                         value={formGuests}
-                        onChange={(e) => setFormGuests(e.target.value)}
-                        className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#D5C9BC] focus:outline-none focus:border-[#C59B27] bg-white"
-                      >
-                        <option value="20">10 - 30 Guests</option>
-                        <option value="50">30 - 60 Guests</option>
-                        <option value="100">60 - 150 Guests</option>
-                        <option value="200">150+ Guests</option>
-                      </select>
+                        onChange={(val) => setFormGuests(val)}
+                        options={[
+                          { value: '20', label: '10 - 30 Guests' },
+                          { value: '50', label: '30 - 60 Guests' },
+                          { value: '100', label: '60 - 150 Guests' },
+                          { value: '200', label: '150+ Guests' }
+                        ]}
+                        icon={Users}
+                        buttonClassName="py-2.5 bg-white"
+                      />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-[11px] font-semibold text-[#1A1612] block mb-1">Special Preferences / Flavour Notes</label>
+                    <label className="text-[11px] font-semibold text-[#2B1A14] block mb-1">Special Preferences / Flavour Notes</label>
                     <textarea
                       rows="2"
                       value={formNotes}
                       onChange={(e) => setFormNotes(e.target.value)}
                       placeholder="e.g. Wedding tier inspiration, pistachio preference, gold leaf request..."
-                      className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#D5C9BC] focus:outline-none focus:border-[#C59B27] resize-none"
+                      className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#E9D8C5] focus:outline-none focus:border-[#C9823A] bg-white text-[#2B1A14] resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-full bg-[#181310] text-[#FAF8F5] hover:bg-[#5A2E1F] font-bold text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer active:scale-95 mt-2"
+                    className="w-full py-3.5 rounded-full bg-[#5A2E1F] text-[#FFF8EE] hover:bg-[#3E1F16] font-bold text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer active:scale-95 mt-2"
                   >
                     Submit Atelier Inquiry
                   </button>

@@ -11,6 +11,7 @@ import hdSigAlmond from '../assets/hd_sig_almond.jpg';
 import hdSigWalnut from '../assets/hd_sig_walnut.jpg';
 import hdSigBlackforest from '../assets/hd_sig_blackforest.jpg';
 import hdCatCakes from '../assets/hd_cat_cakes.jpg';
+import CustomDropdown from '../components/CustomDropdown';
 
 export default function CakesPage({ onAddToCart, onViewDetails, onNavigateHome, onOpenCustomCake }) {
   const [activeFlavour, setActiveFlavour] = useState('all');
@@ -145,15 +146,11 @@ export default function CakesPage({ onAddToCart, onViewDetails, onNavigateHome, 
         <div className="flex items-center justify-between mb-4">
           <button
             onClick={() => { playSound('click'); onNavigateHome(); }}
-            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#78665C] hover:text-[#2B1A14] transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#78665C] hover:text-[#5A2E1F] transition-colors cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Home</span>
           </button>
-
-          <span className="text-xs text-[#C9823A] font-mono uppercase tracking-widest">
-            Home / Collection / Cakes
-          </span>
         </div>
 
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -206,29 +203,37 @@ export default function CakesPage({ onAddToCart, onViewDetails, onNavigateHome, 
             ))}
           </div>
 
-          {/* Right Controls: Dietary & Sort */}
-          <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
-            <select
+          {/* Right Controls: Dietary & Sort Custom Dropdowns */}
+          <div className="flex items-center gap-2.5 w-full md:w-auto justify-between md:justify-end">
+            <CustomDropdown
               value={dietaryFilter}
-              onChange={(e) => setDietaryFilter(e.target.value)}
-              className="bg-[#FFF8EE] border border-[#E9D8C5] text-xs text-[#2B1A14] px-3 py-1.5 rounded-xl focus:outline-none cursor-pointer"
-            >
-              <option value="all">Dietary: All</option>
-              <option value="eggless">Eggless</option>
-              <option value="vegetarian">Vegetarian</option>
-              <option value="nut-free">Nut-Free</option>
-            </select>
+              onChange={(val) => setDietaryFilter(val)}
+              options={[
+                { value: 'all', label: 'Dietary: All' },
+                { value: 'eggless', label: 'Eggless' },
+                { value: 'vegetarian', label: 'Vegetarian' },
+                { value: 'nut-free', label: 'Nut-Free' }
+              ]}
+              icon={Filter}
+              buttonClassName="py-2 px-3 bg-white"
+              menuClassName="w-44"
+              align="right"
+            />
 
-            <select
+            <CustomDropdown
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="bg-[#FFF8EE] border border-[#E9D8C5] text-xs text-[#2B1A14] px-3 py-1.5 rounded-xl focus:outline-none cursor-pointer"
-            >
-              <option value="featured">Sort by: Featured</option>
-              <option value="price-low">Price: Low to High</option>
-              <option value="price-high">Price: High to Low</option>
-              <option value="rating">Highest Rated</option>
-            </select>
+              onChange={(val) => setSortBy(val)}
+              options={[
+                { value: 'featured', label: 'Sort: Featured' },
+                { value: 'price-low', label: 'Price: Low to High' },
+                { value: 'price-high', label: 'Price: High to Low' },
+                { value: 'rating', label: 'Highest Rated' }
+              ]}
+              icon={SlidersHorizontal}
+              buttonClassName="py-2 px-3 bg-white"
+              menuClassName="w-48"
+              align="right"
+            />
           </div>
 
         </div>

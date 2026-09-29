@@ -104,7 +104,11 @@ export default function Footer({ onNavigate = () => {}, onOpenCustomCake = () =>
               <li><button onClick={() => handleLink('contact')} className="hover:text-white transition-colors cursor-pointer">Boutique Locations</button></li>
               <li><button onClick={() => handleLink('contact')} className="hover:text-white transition-colors cursor-pointer">Express Delivery</button></li>
               <li><button onClick={() => handleLink('story')} className="hover:text-white transition-colors cursor-pointer">Ingredient Purity</button></li>
-              <li><button onClick={() => handleLink('contact')} className="hover:text-white transition-colors cursor-pointer">Contact Concierge</button></li>
+              <li>
+                <a href="tel:+916239796319" className="text-[#C9823A] hover:text-white font-medium transition-colors inline-flex items-center gap-1">
+                  <span>Call +91 62397 96319</span>
+                </a>
+              </li>
             </ul>
           </div>
 

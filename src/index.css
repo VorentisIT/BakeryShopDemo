@@ -5,13 +5,16 @@
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-script: "Caveat", cursive;
   
-  --color-ivory: #FAF8F3;
-  --color-delice-espresso: #1A1412;
-  --color-delice-dark: #120E0C;
-  --color-delice-gold: #C59B27;
-  --color-delice-champagne: #D6A84F;
-  --color-delice-cream: #F7F2EC;
-  --color-delice-border: #E6DFD5;
+  --color-primary: #5A2E1F;
+  --color-primary-hover: #3E1F16;
+  --color-accent: #C9823A;
+  --color-background: #FFF8EE;
+  --color-secondary-bg: #F4E5D2;
+  --color-card-bg: #FFFFFF;
+  --color-main-text: #2B1A14;
+  --color-secondary-text: #78665C;
+  --color-border: #E9D8C5;
+  --color-success: #5E8060;
 }
 
 @layer base {
@@ -22,8 +25,8 @@
   }
 
   body {
-    background-color: #FAF8F3;
-    color: #1A1612;
+    background-color: #FFF8EE;
+    color: #2B1A14;
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -45,14 +48,14 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #FAF8F5;
+    background: #FFF8EE;
   }
   ::-webkit-scrollbar-thumb {
-    background: #E6DFD5;
+    background: #E9D8C5;
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #C59B27;
+    background: #5A2E1F;
   }
 }
 
@@ -73,7 +76,7 @@
 
 /* Subtle gold text gradient */
 @utility text-gold-gradient {
-  background-image: linear-gradient(135deg, #B8860B 0%, #C59B27 50%, #D6A84F 100%);
+  background-image: linear-gradient(135deg, #C9823A 0%, #D49B55 50%, #E2B87F 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -81,11 +84,11 @@
 
 /* Luxury card shadow */
 @utility shadow-delice {
-  box-shadow: 0 10px 30px -5px rgba(24, 19, 16, 0.05), 0 4px 12px -2px rgba(24, 19, 16, 0.03);
+  box-shadow: 0 10px 30px -5px rgba(90, 46, 31, 0.05), 0 4px 12px -2px rgba(90, 46, 31, 0.03);
 }
 
 @utility shadow-delice-hover {
-  box-shadow: 0 20px 40px -10px rgba(24, 19, 16, 0.1), 0 8px 16px -4px rgba(24, 19, 16, 0.05);
+  box-shadow: 0 20px 40px -10px rgba(90, 46, 31, 0.1), 0 8px 16px -4px rgba(90, 46, 31, 0.05);
 }
 
 /* Floating animation */

@@ -35,8 +35,8 @@ export default function GlobalScrollCake() {
       ref={cakeContainerRef}
       className="fixed bottom-6 right-6 z-40 w-36 sm:w-44 aspect-square pointer-events-none transition-all duration-300 filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.12)] hidden md:block"
     >
-      {/* Dynamic Gold Glow Background */}
-      <div className="absolute inset-0 bg-[#D6A84F]/15 rounded-full blur-xl pointer-events-none" />
+      {/* Dynamic Glow Background */}
+      <div className="absolute inset-0 bg-[#C9823A]/15 rounded-full blur-xl pointer-events-none" />
 
       {/* Floating Transparent Cake */}
       <div className="w-full h-full relative z-10 p-2">
@@ -48,8 +48,8 @@ export default function GlobalScrollCake() {
       </div>
 
       {/* Scroll Progress Indicator Pill */}
-      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-[#181310] text-[#D6A84F] border border-[#D6A84F]/40 text-[9px] font-mono font-medium shadow-lg z-20 whitespace-nowrap flex items-center gap-1.5 pointer-events-auto">
-        <Award className="w-3 h-3 text-[#C59B27]" />
+      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-[#5A2E1F] text-[#FFF8EE] border border-[#E9D8C5] text-[9px] font-mono font-medium shadow-lg z-20 whitespace-nowrap flex items-center gap-1.5 pointer-events-auto">
+        <Award className="w-3 h-3 text-[#C9823A]" />
         <span>SCROLL {scrollProgress}%</span>
       </div>
     </div>

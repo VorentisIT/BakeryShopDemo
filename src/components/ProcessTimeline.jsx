@@ -31,21 +31,21 @@ export default function ProcessTimeline() {
   ];
 
   return (
-    <section className="py-24 relative z-20 bg-white text-[#1A1612] border-t border-[#E6DFD5] overflow-hidden select-none">
+    <section className="py-24 relative z-20 bg-white text-[#2B1A14] border-t border-[#E9D8C5] overflow-hidden select-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3 mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E6DFD5]">
-            <Sparkles className="w-3 h-3 text-[#C59B27]" />
-            <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#C59B27]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFF8EE] border border-[#E9D8C5]">
+            <Sparkles className="w-3 h-3 text-[#C9823A]" />
+            <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#C9823A]">
               OUR BAKING PROCESS
             </span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-5xl font-normal text-[#1A1612]">
-            How We Craft <span className="italic text-[#C59B27]">Perfection</span>
+          <h2 className="font-serif text-3xl sm:text-5xl font-normal text-[#2B1A14]">
+            How We Craft <span className="italic text-[#C9823A]">Perfection</span>
           </h2>
-          <p className="text-xs sm:text-sm text-[#6B5744] font-light">
+          <p className="text-xs sm:text-sm text-[#78665C] font-light">
             Four meticulous steps that define our award-winning French pastry standards.
           </p>
         </div>
@@ -61,7 +61,7 @@ export default function ProcessTimeline() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="group relative bg-[#FAF8F5] p-8 rounded-2xl border border-[#E6DFD5] hover:border-[#5A2E1F]/50 transition-all duration-300 flex flex-col justify-between shadow-sm"
+                className="group relative bg-[#FFF8EE] p-8 rounded-2xl border border-[#E9D8C5] hover:border-[#5A2E1F]/50 transition-all duration-300 flex flex-col justify-between shadow-xs"
               >
                 <div>
                   {/* Step Number & Icon */}
@@ -69,21 +69,21 @@ export default function ProcessTimeline() {
                     <span className="font-mono text-3xl font-bold text-[#5A2E1F]/40 group-hover:text-[#5A2E1F] transition-colors">
                       {step.num}
                     </span>
-                    <div className="w-12 h-12 rounded-xl bg-white border border-[#E6DFD5] flex items-center justify-center text-[#5A2E1F] group-hover:scale-110 transition-transform shadow-sm">
+                    <div className="w-12 h-12 rounded-xl bg-white border border-[#E9D8C5] flex items-center justify-center text-[#5A2E1F] group-hover:scale-110 transition-transform shadow-xs">
                       <Icon className="w-6 h-6" />
                     </div>
                   </div>
 
-                  <h3 className="font-serif text-xl font-normal text-[#1A1612] group-hover:text-[#5A2E1F] transition-colors">
+                  <h3 className="font-serif text-xl font-normal text-[#2B1A14] group-hover:text-[#5A2E1F] transition-colors">
                     {step.title}
                   </h3>
-                  <p className="text-xs text-[#6B5744] font-light mt-3 leading-relaxed">
+                  <p className="text-xs text-[#78665C] font-light mt-3 leading-relaxed">
                     {step.desc}
                   </p>
                 </div>
 
                 {/* Bottom Gold Progress Line */}
-                <div className="w-0 h-0.5 bg-[#C59B27] transition-all duration-500 group-hover:w-full mt-6" />
+                <div className="w-0 h-0.5 bg-[#C9823A] transition-all duration-500 group-hover:w-full mt-6" />
               </motion.div>
             );
           })}
